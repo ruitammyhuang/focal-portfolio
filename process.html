@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Process — Focal Portfolio</title>
-  <meta name="description" content="Phase-by-phase account of how Focal was designed and built through human–AI collaboration — decisions, pivots, and what triggered each iteration.">
+  <title>The Process | Focal Portfolio</title>
+  <meta name="description" content="Phase-by-phase account of how Focal was designed and built through human–AI collaboration, covering decisions, pivots, and what triggered each iteration.">
   <meta property="og:title" content="The Process: How Focal Was Built with Claude AI">
-  <meta property="og:description" content="A phase-by-phase account of human–AI collaborative system design — from problem definition to modular production architecture.">
+  <meta property="og:description" content="A phase-by-phase account of human–AI collaborative system design, from problem definition to modular production architecture.">
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ── Accordion phase cards ── */
@@ -105,7 +105,7 @@
   <header class="hero">
     <div class="hero-eyebrow">The Process</div>
     <h1>How Focal Was Built: <em>Phase by Phase</em></h1>
-    <p class="hero-lead">The development of Focal wasn't a straight line. It was an iterative, collaborative process with real design decisions, wrong turns, and deliberate pivots — all in conversation with Claude AI.</p>
+    <p class="hero-lead">The development of Focal wasn't a straight line. It was an iterative, collaborative process with real design decisions, wrong turns, and deliberate pivots, all in conversation with Claude AI.</p>
     <div class="hero-meta">
       <span class="badge badge-blue">5 Major Phases</span>
       <span class="badge badge-purple">Iterative Design</span>
@@ -118,7 +118,7 @@
     <div class="callout-icon">📖</div>
     <div>
       <strong>How to read this section</strong>
-      Each phase describes what the human brought to the collaboration, what the AI contributed, what design decisions were made, and what triggered the move to the next phase. The goal is to surface the <em>cognitive division of labor</em> — not just what was built, but who did what kind of thinking.
+      Each phase describes what the human brought to the collaboration, what the AI contributed, what design decisions were made, and what triggered the move to the next phase. The goal is to surface the <em>cognitive division of labor</em>: not just what was built, but who did what kind of thinking.
     </div>
   </div>
 
@@ -147,9 +147,9 @@
           <p>The initial setup was Notion-only: per-project pages with simple task lists. Claude helped design the page hierarchy, database schemas, and naming conventions. No automation yet.</p>
         </div>
         <div class="sub-grid">
-          <div class="sub-box"><strong>Human's role</strong>Domain expert — described work areas, project types, what "useful" would look like. Made all structural decisions.</div>
+          <div class="sub-box"><strong>Human's role</strong>Domain expert who described work areas, project types, and what "useful" would look like. Made all structural decisions.</div>
           <div class="sub-box"><strong>AI's role</strong>Structured the problem, proposed database schemas, surfaced tradeoffs between flat vs. relational Notion setups.</div>
-          <div class="sub-box"><strong>Key decision</strong>Per-project WBS databases (not a single flat task list) — allowing project-level customization while still enabling a global view.</div>
+          <div class="sub-box"><strong>Key decision</strong>Per-project WBS databases (not a single flat task list), allowing project-level customization while still enabling a global view.</div>
           <div class="sub-box"><strong>Key artifact</strong>Initial Notion workspace architecture: hub pages, WBS databases, Projects DB, Work Sessions DB.</div>
         </div>
         <div class="pivot-box">
@@ -173,17 +173,17 @@
         <div class="phase-divider"></div>
         <div class="phase-body">
           <p>The first version of Focal was a single Python script (~1,000 lines) that discovered all WBS databases in Notion by title pattern, pulled tasks from each, and created/updated corresponding entries in Master WBS Tasks. Claude wrote most of the code; the human defined the logic, approved the API strategy, and tested against real Notion data.</p>
-          <p>A Flask UI was added as a thin wrapper to make sync triggerable from a browser rather than the terminal. This was the first time the "Quick Add" concept appeared — the user wanted to create tasks without opening Notion.</p>
+          <p>A Flask UI was added as a thin wrapper to make sync triggerable from a browser rather than the terminal. This was the first time the "Quick Add" concept appeared. The user wanted to create tasks without opening Notion.</p>
         </div>
         <div class="sub-grid">
           <div class="sub-box"><strong>Human's role</strong>Defined sync rules (idempotency, one-directional), tested with real data, identified bugs, described edge cases from actual use.</div>
           <div class="sub-box"><strong>AI's role</strong>Implemented Notion API calls, wrote deduplication logic, built the Flask wrapper, debugged API quirks.</div>
           <div class="sub-box"><strong>Key decision</strong>One-directional sync (Project WBS → Master only). Protects the Auto Status formula field in Master from being overwritten.</div>
-          <div class="sub-box"><strong>Key artifact</strong><code>notion_wbs_sync.py</code> — a ~1,000-line monolithic script with Flask routes, Notion client, and sync logic all in one file.</div>
+          <div class="sub-box"><strong>Key artifact</strong><code>notion_wbs_sync.py</code>: a ~1,000-line monolithic script with Flask routes, Notion client, and sync logic all in one file.</div>
         </div>
         <div class="pivot-box">
           <strong>What triggered the next phase</strong>
-          The monolithic script became hard to navigate and modify. Adding a new field or fixing a bug required understanding 1,000 lines of context. The human needed to describe changes to Claude, who would then search for the right location — inefficient and error-prone.
+          The monolithic script became hard to navigate and modify. Adding a new field or fixing a bug required understanding 1,000 lines of context. The human needed to describe changes to Claude, who would then search for the right location. This was inefficient and error-prone.
         </div>
       </div>
     </div>
@@ -201,13 +201,13 @@
       <div class="phase-content" id="content-2">
         <div class="phase-divider"></div>
         <div class="phase-body">
-          <p>The monolith was refactored into a proper Python package — <code>focal/</code> — with separation of concerns: API client, sync engine, route blueprints, templates. The human directed the architecture; Claude performed the refactor, maintaining behavior while restructuring.</p>
+          <p>The monolith was refactored into a proper Python package (<code>focal/</code>) with separation of concerns: API client, sync engine, route blueprints, templates. The human directed the architecture; Claude performed the refactor, maintaining behavior while restructuring.</p>
           <p>This phase introduced formal documentation: a <code>_MANIFEST.md</code> Tier System to help Claude navigate the codebase in future sessions without reading all 3,000 lines. This was a meta-level insight: the collaboration was generating context management overhead that required its own designed solution.</p>
         </div>
         <div class="sub-grid">
           <div class="sub-box"><strong>Human's role</strong>Directed the architecture split, defined the Tier System for context management, validated that behavior was preserved.</div>
           <div class="sub-box"><strong>AI's role</strong>Executed the refactor, reorganized files, updated imports, built the Blueprint pattern for Flask routes.</div>
-          <div class="sub-box"><strong>Key decision</strong>The Tier System in _MANIFEST.md — a human-designed solution to the AI's context window limitations. Tier 1 files always safe to read; Tier 2 only when modifying; Tier 3 never unless asked.</div>
+          <div class="sub-box"><strong>Key decision</strong>The Tier System in _MANIFEST.md: a human-designed solution to the AI's context window limitations. Tier 1 files are always safe to read; Tier 2 only when modifying; Tier 3 never unless asked.</div>
           <div class="sub-box"><strong>Key artifact</strong>The <code>focal/</code> package: <code>app.py</code>, <code>config.py</code>, <code>notion_client.py</code>, <code>sync_engine.py</code>, <code>tasks.py</code>, <code>routes/</code>, <code>templates/</code>.</div>
         </div>
         <div class="pivot-box">
@@ -230,18 +230,18 @@
       <div class="phase-content" id="content-3">
         <div class="phase-divider"></div>
         <div class="phase-body">
-          <p>Two new views were added to the Focal UI: a Focus Tasks view (overdue, due today, due this week — across all projects, auto-prioritized) and a Workload Dashboard (hours logged by project and work type, updated from Work Sessions data). Both required new Notion API queries and a caching layer to avoid hitting rate limits on every page load.</p>
-          <p>The Focus Tasks view also connected to Notion pages in Cowork — Claude could query it directly to answer "what should I work on today?" A scheduled task was set up to refresh the focus list daily.</p>
+          <p>Two new views were added to the Focal UI: a Focus Tasks view (overdue, due today, due this week, across all projects and auto-prioritized) and a Workload Dashboard (hours logged by project and work type, updated from Work Sessions data). Both required new Notion API queries and a caching layer to avoid hitting rate limits on every page load.</p>
+          <p>The Focus Tasks view also connected to Notion pages in Cowork, so Claude could query it directly to answer "what should I work on today?" A scheduled task was set up to refresh the focus list daily.</p>
         </div>
         <div class="sub-grid">
           <div class="sub-box"><strong>Human's role</strong>Defined what "focus" meant (urgency logic), specified which data the dashboard needed, tested the prioritization against actual workload perception.</div>
           <div class="sub-box"><strong>AI's role</strong>Implemented the Notion query logic, built the caching layer, designed the dashboard UI, created the scheduled task integration.</div>
-          <div class="sub-box"><strong>Key decision</strong>Cache focus tasks locally (not re-query Notion on every view) — necessary because the Notion API is slow and rate-limited for 200+ tasks.</div>
+          <div class="sub-box"><strong>Key decision</strong>Cache focus tasks locally rather than re-querying Notion on every view, necessary because the Notion API is slow and rate-limited for 200+ tasks.</div>
           <div class="sub-box"><strong>Key artifact</strong><code>focus.html</code>, <code>workload.html</code>, <code>focus-task-list-cache.json</code>, <code>dashboard_routes.py</code>.</div>
         </div>
         <div class="pivot-box">
           <strong>What triggered the next phase</strong>
-          Daily use surfaced friction the design hadn't anticipated: the Master WBS schema felt awkward in practice, data entry was inconsistent across projects, and interface flows had accumulated small inefficiencies. A deeper restructuring was needed — not just new features.
+          Daily use surfaced friction the design hadn't anticipated: the Master WBS schema felt awkward in practice, data entry was inconsistent across projects, and interface flows had accumulated small inefficiencies. A deeper restructuring was needed, not just new features.
         </div>
       </div>
     </div>
@@ -259,13 +259,13 @@
       <div class="phase-content" id="content-4">
         <div class="phase-divider"></div>
         <div class="phase-body">
-          <p>Major restructuring of the Master WBS Tasks database — schema simplified, field organization redesigned to reduce redundancy and improve cross-project comparability. The data flow between Project WBS → Master WBS → Work Sessions was streamlined to eliminate unnecessary intermediate steps. Interface optimizations across the Focal UI reduced clicks for common actions and created more consistent visual hierarchy. Data entry was made more flexible and consistent through field defaults, option normalization, and validation rules applied across all project WBS databases.</p>
-          <p>This was a user-experience driven iteration, not a feature iteration — grounded entirely in friction encountered during daily use.</p>
+          <p>Major restructuring of the Master WBS Tasks database, with schema simplified and field organization redesigned to reduce redundancy and improve cross-project comparability. The data flow between Project WBS → Master WBS → Work Sessions was streamlined to eliminate unnecessary intermediate steps. Interface optimizations across the Focal UI reduced clicks for common actions and created more consistent visual hierarchy. Data entry was made more flexible and consistent through field defaults, option normalization, and validation rules applied across all project WBS databases.</p>
+          <p>This was a user-experience driven iteration, not a feature iteration, grounded entirely in friction encountered during daily use.</p>
         </div>
         <div class="sub-grid">
           <div class="sub-box"><strong>Human's role</strong>Identified friction from lived use, specified what felt wrong and why, directed the redesign priorities.</div>
           <div class="sub-box"><strong>AI's role</strong>Proposed schema reorganization options, implemented DB restructure, rebuilt UI flows, normalized field options across all WBS databases.</div>
-          <div class="sub-box"><strong>Key decision</strong>Treat UX friction as a first-class design signal — not a bug to patch but a signal that the architecture needed rethinking.</div>
+          <div class="sub-box"><strong>Key decision</strong>Treat UX friction as a first-class design signal, not a bug to patch but a signal that the architecture needed rethinking.</div>
           <div class="sub-box"><strong>Key insight</strong>The gap between "what seemed right in design" and "what works in daily practice" is a critical feedback loop that only the human-as-user can close.</div>
         </div>
       </div>
@@ -285,7 +285,7 @@
         <div class="phase-divider"></div>
         <div class="phase-body">
           <p>The system is in active daily use and continues to evolve. The current focus is on: (1) building this case portfolio as a structured artifact for CS Education and Instructional Design, and (2) refining design documents as the system matures.</p>
-          <p>New features are still being added — but the main intellectual work now is reflective and generative: extracting transferable knowledge from the case and making it useful for teaching and research.</p>
+          <p>New features are still being added, but the main intellectual work now is reflective and generative: extracting transferable knowledge from the case and making it useful for teaching and research.</p>
         </div>
       </div>
     </div>
@@ -369,22 +369,22 @@
       <div class="card">
         <div class="card-icon">🧠</div>
         <div class="card-title">The Manifest Insight</div>
-        <div class="card-body">When the codebase grew large enough that starting each session with "re-read all this code" was expensive, the human designed the Tier System — a structured way to tell the AI what's safe to read proactively vs. only when needed. This was a human designing for AI cognitive constraints, not the other way around.</div>
+        <div class="card-body">When the codebase grew large enough that starting each session with "re-read all this code" was expensive, the human designed the Tier System: a structured way to tell the AI what's safe to read proactively vs. only when needed. This was a human designing for AI cognitive constraints, not the other way around.</div>
       </div>
       <div class="card">
         <div class="card-icon">🚨</div>
         <div class="card-title">The Status Overwrite Bug</div>
-        <div class="card-body">An early sync implementation overwrote the Auto Status formula field on every sync run. This silently corrupted data. The fix — setting status only on CREATE, never on UPDATE — became a core design principle. The human's domain knowledge was essential; the AI had generated correct code that broke correct logic.</div>
+        <div class="card-body">An early sync implementation overwrote the Auto Status formula field on every sync run. This silently corrupted data. The fix (setting status only on CREATE, never on UPDATE) became a core design principle. The human's domain knowledge was essential; the AI had generated correct code that broke correct logic.</div>
       </div>
       <div class="card">
         <div class="card-icon">💬</div>
         <div class="card-title">Requirements That Changed After Implementation</div>
-        <div class="card-body">Several times, a feature was implemented correctly but the human discovered the requirement was wrong once they saw it working. This is a well-known problem in software engineering — but AI-speed implementation made the feedback loop fast enough that it happened more frequently than in traditional development.</div>
+        <div class="card-body">Several times, a feature was implemented correctly but the human discovered the requirement was wrong once they saw it working. This is a well-known problem in software engineering, but AI-speed implementation made the feedback loop fast enough that it happened more frequently than in traditional development.</div>
       </div>
       <div class="card">
         <div class="card-icon">📐</div>
         <div class="card-title">Skills in Config Files</div>
-        <div class="card-body">The system uses skills — structured prompt files — that encode domain knowledge (database IDs, sync rules, hub page patterns) so Claude can act correctly without re-deriving it each session. This blurred the line between documentation and automation: the skills are both human-readable and machine-actionable.</div>
+        <div class="card-body">The system uses skills (structured prompt files) that encode domain knowledge (database IDs, sync rules, hub page patterns) so Claude can act correctly without re-deriving it each session. This blurred the line between documentation and automation: the skills are both human-readable and machine-actionable.</div>
       </div>
     </div>
   </div>
@@ -398,7 +398,7 @@
 <footer class="footer">
   <p>Focal Case Portfolio · &copy; Rui Tammy Huang, Ph.D. · University of Florida</p>
   <p style="margin-top:6px;"><a href="mailto:rui.huang@coe.ufl.edu">rui.huang@coe.ufl.edu</a> · <a href="https://education.ufl.edu/faculty/rui-tammy-huang/" target="_blank">UF Faculty Page</a></p>
-  <p style="margin-top:6px;">A living document — updated as the system and understanding evolve.</p>
+  <p style="margin-top:6px;">A living document, updated as the system and understanding evolve.</p>
 </footer>
 
 <script src="js/main.js"></script>

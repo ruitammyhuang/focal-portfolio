@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Update Log — Focal Portfolio</title>
-  <meta name="description" content="Changelog as the Focal system evolves — each update captures new insights, system changes, and revised lessons from the ongoing development.">
+  <title>Update Log | Focal Portfolio</title>
+  <meta name="description" content="Changelog as the Focal system evolves. Each update captures new insights, system changes, and revised lessons from the ongoing development.">
   <link rel="stylesheet" href="css/style.css">
   <style>
     .update-phase {
@@ -62,7 +62,7 @@
   <header class="hero">
     <div class="hero-eyebrow">Update Log</div>
     <h1>Update Log: <em>As the System Evolves</em></h1>
-    <p class="hero-lead">The Focal system is in active development. This log captures each significant update — system changes, new insights, and portfolio revisions — so the case remains a living, evolving document rather than a static snapshot.</p>
+    <p class="hero-lead">The Focal system is in active development. This log captures each significant update, including system changes, new insights, and portfolio revisions, so the case remains a living, evolving document rather than a static snapshot.</p>
     <div class="hero-meta">
       <span class="badge badge-blue">System Changes</span>
       <span class="badge badge-purple">New Insights</span>
@@ -92,11 +92,11 @@
         <div class="update-date">June 2026</div>
         <span class="update-phase phase-system">System</span>
       </div>
-      <div class="update-version">v0.3 — Master WBS Restructure, Data Flow Optimization &amp; UX Overhaul</div>
+      <div class="update-version">v0.3: Master WBS Restructure, Data Flow Optimization &amp; UX Overhaul</div>
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>What changed</strong>
-        <p>Major restructuring of the Master WBS Tasks database — schema simplified and field organization redesigned to reduce redundancy and improve cross-project comparability. Data flow between Project WBS → Master WBS → Work Sessions was streamlined to eliminate intermediate steps and reduce sync latency. Interface optimizations across the Focal UI improved usability: cleaner layouts, reduced clicks for common actions, and more consistent visual hierarchy. Data entry was made more flexible and consistent — field defaults, option normalization, and validation rules applied across all project WBS databases to prevent silent mismatches during sync.</p>
+        <p>Major restructuring of the Master WBS Tasks database, with schema simplified and field organization redesigned to reduce redundancy and improve cross-project comparability. Data flow between Project WBS → Master WBS → Work Sessions was streamlined to eliminate intermediate steps and reduce sync latency. Interface optimizations across the Focal UI improved usability: cleaner layouts, reduced clicks for common actions, and more consistent visual hierarchy. Data entry was made more flexible and consistent through field defaults, option normalization, and validation rules applied across all project WBS databases to prevent silent mismatches during sync.</p>
       </div>
       <div class="update-divider"></div>
       <div class="update-section">
@@ -106,12 +106,12 @@
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>Key lessons from this cycle</strong>
-        <p>Real use surfaces problems that design sessions cannot anticipate. The gap between "what seemed right in design" and "what works in daily practice" is a critical feedback loop — and it requires the human to be the user, not just the designer. AI can implement changes quickly once the friction is identified, but the identification itself requires lived experience with the system.</p>
+        <p>Real use surfaces problems that design sessions cannot anticipate. The gap between "what seemed right in design" and "what works in daily practice" is a critical feedback loop that requires the human to be the user, not just the designer. AI can implement changes quickly once the friction is identified, but the identification itself requires lived experience with the system.</p>
       </div>
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>Implications for the portfolio</strong>
-        <p>This iteration adds weight to the "real stakes" argument in the Case section — the system is refined through actual use, not simulated testing. The UX-driven refactor also surfaces a new competency dimension: the ability to distinguish "this is a design problem" from "this is an implementation bug" when something feels wrong in daily use.</p>
+        <p>This iteration adds weight to the "real stakes" argument in the Case section, since the system is refined through actual use, not simulated testing. The UX-driven refactor also surfaces a new competency dimension: the ability to distinguish "this is a design problem" from "this is an implementation bug" when something feels wrong in daily use.</p>
       </div>
     </div>
 
@@ -121,7 +121,7 @@
         <div class="update-date">May 2026</div>
         <span class="update-phase phase-system">System</span>
       </div>
-      <div class="update-version">v0.2 — Modular Architecture Refactor</div>
+      <div class="update-version">v0.2: Modular Architecture Refactor</div>
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>What changed</strong>
@@ -130,12 +130,12 @@
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>Why it was done</strong>
-        <p>Monolith became too large for efficient AI collaboration — locating the right section required too much context. The refactor reduced per-session cognitive load and made the codebase easier to reason about for both human and AI.</p>
+        <p>The monolith became too large for efficient AI collaboration. Locating the right section required too much context. The refactor reduced per-session cognitive load and made the codebase easier to reason about for both human and AI.</p>
       </div>
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>Key lesson</strong>
-        <p>The refactor wasn't triggered by a feature failure — the system worked. It was triggered by collaboration friction. This is an important data point: in human–AI projects, architecture quality directly affects collaboration quality, not just system quality.</p>
+        <p>The refactor wasn't triggered by a feature failure. The system worked. It was triggered by collaboration friction. This is an important data point: in human–AI projects, architecture quality directly affects collaboration quality, not just system quality.</p>
       </div>
     </div>
 
@@ -145,7 +145,7 @@
         <div class="update-date">Early 2026</div>
         <span class="update-phase phase-system">System</span>
       </div>
-      <div class="update-version">v0.1 — First Automation (Monolithic Script)</div>
+      <div class="update-version">v0.1: First Automation (Monolithic Script)</div>
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>What was built</strong>
@@ -154,7 +154,7 @@
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>Key design decision</strong>
-        <p>One-directional sync (Project WBS → Master only). This was not obvious initially — the first implementation was bidirectional and immediately caused a status overwrite bug. The fix revealed a core architectural principle.</p>
+        <p>One-directional sync (Project WBS → Master only). This was not obvious initially. The first implementation was bidirectional and immediately caused a status overwrite bug. The fix revealed a core architectural principle.</p>
       </div>
     </div>
   </div>
@@ -164,7 +164,7 @@
     <div class="section-header">
       <div class="section-label">Update Process</div>
       <h2 class="section-title">How to Add a New Update</h2>
-      <p class="section-sub">Template for periodic portfolio update sessions — run with Claude to keep the portfolio current as the system evolves.</p>
+      <p class="section-sub">Template for periodic portfolio update sessions, run with Claude to keep the portfolio current as the system evolves.</p>
     </div>
 
     <div class="callout warn" style="margin-bottom:20px;">
@@ -175,7 +175,7 @@
     </div>
 
     <div class="update-template">
-      <div class="template-label">Portfolio Update Template — Use in Claude session</div>
+      <div class="template-label">Portfolio Update Template: Use in Claude session</div>
       <div class="template-field">Date: [Month Year]</div>
       <div class="template-field">System state: [What features exist, what projects are tracked, what's stable vs. in flux]</div>
       <div class="template-field">What changed since last update: [System changes, new features, architectural decisions]</div>
@@ -204,7 +204,7 @@
 <footer class="footer">
   <p>Focal Case Portfolio · &copy; Rui Tammy Huang, Ph.D. · University of Florida</p>
   <p style="margin-top:6px;"><a href="mailto:rui.huang@coe.ufl.edu">rui.huang@coe.ufl.edu</a> · <a href="https://education.ufl.edu/faculty/rui-tammy-huang/" target="_blank">UF Faculty Page</a></p>
-  <p style="margin-top:6px;">A living document — updated as the system and understanding evolve.</p>
+  <p style="margin-top:6px;">A living document, updated as the system and understanding evolve.</p>
 </footer>
 
 <script src="js/main.js"></script>

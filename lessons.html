@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lessons Learned — Focal Portfolio</title>
-  <meta name="description" content="What worked, what failed, and the surprises from building a complex system with AI — organized for teaching and reuse.">
+  <title>Lessons Learned | Focal Portfolio</title>
+  <meta name="description" content="What worked, what failed, and the surprises from building a complex system with AI, organized for teaching and reuse.">
   <meta property="og:title" content="Lessons Learned: Human–AI System Design the Hard Way">
-  <meta property="og:description" content="Candid account of what worked and what didn't when building a real production system with Claude AI — organized for teaching.">
+  <meta property="og:description" content="Candid account of what worked and what didn't when building a real production system with Claude AI, organized for teaching.">
   <link rel="stylesheet" href="css/style.css">
   <style>
     .lesson-card {
@@ -65,7 +65,7 @@
   <header class="hero">
     <div class="hero-eyebrow">Lessons Learned</div>
     <h1>What Actually Happened: <em>Candid Lessons</em></h1>
-    <p class="hero-lead">Not curated successes — a real account of what worked, what failed, and what was surprising. Organized so educators can use these directly in teaching without needing to re-derive them from scratch.</p>
+    <p class="hero-lead">Not curated successes. This is a real account of what worked, what failed, and what was surprising. Organized so educators can use these directly in teaching without needing to re-derive them from scratch.</p>
     <div class="hero-meta">
       <span class="badge badge-green">What Works</span>
       <span class="badge" style="background:#fff1f2;color:#dc2626;border:1px solid #fecdd3;">Pitfalls to Avoid</span>
@@ -86,7 +86,7 @@
         <div class="lesson-tag tag-works">✓ Works Well</div>
         <div class="lesson-title">Treating the AI as a persistent collaborator, not a one-shot query tool</div>
       </div>
-      <div class="lesson-body">The highest-quality outputs came from conversations that built context over multiple exchanges — where the AI had learned (within a session) what the constraints were, what had already been tried, and what the human actually cared about. Sessions that opened with "do this task" produced worse results than sessions that opened with context, discussed approach, then implemented.</div>
+      <div class="lesson-body">The highest-quality outputs came from conversations that built context over multiple exchanges, where the AI had learned (within a session) what the constraints were, what had already been tried, and what the human actually cared about. Sessions that opened with "do this task" produced worse results than sessions that opened with context, discussed approach, then implemented.</div>
       <div class="lesson-takeaway takeaway-green">Teach students: design your sessions, not just your prompts. The conversation arc matters as much as any individual message.</div>
     </div>
 
@@ -95,7 +95,7 @@
         <div class="lesson-tag tag-works">✓ Works Well</div>
         <div class="lesson-title">Encoding domain knowledge in skills files rather than restating it each session</div>
       </div>
-      <div class="lesson-body">The most valuable investment in the Focal project was building skills files that encoded reusable domain knowledge — database IDs, sync rules, hub page patterns, config schema. These files function simultaneously as documentation (human-readable) and AI instruction (machine-actionable). Once written, they eliminated a class of re-derivation errors entirely.</div>
+      <div class="lesson-body">The most valuable investment in the Focal project was building skills files that encoded reusable domain knowledge: database IDs, sync rules, hub page patterns, config schema. These files function simultaneously as documentation (human-readable) and AI instruction (machine-actionable). Once written, they eliminated a class of re-derivation errors entirely.</div>
       <div class="lesson-takeaway takeaway-green">Treat shared domain knowledge as an artifact to build, not just information to repeat. The skill files are a form of institutional memory for the human–AI team.</div>
     </div>
 
@@ -104,7 +104,7 @@
         <div class="lesson-tag tag-works">✓ Works Well</div>
         <div class="lesson-title">Letting the AI surface options before the human commits to an approach</div>
       </div>
-      <div class="lesson-body">When the human asked for "option A or option B?" the conversation was constrained. When the human asked "what are the main approaches here and what are the tradeoffs?" the AI often surfaced an option C the human hadn't considered — sometimes the best one. This required the human to resist the urge to jump straight to implementation.</div>
+      <div class="lesson-body">When the human asked for "option A or option B?" the conversation was constrained. When the human asked "what are the main approaches here and what are the tradeoffs?" the AI often surfaced an option C the human hadn't considered, sometimes the best one. This required the human to resist the urge to jump straight to implementation.</div>
       <div class="lesson-takeaway takeaway-green">Teach: delay commitment to approach until after the AI has surfaced the option space. "What are my options?" is often a better first prompt than "do X".</div>
     </div>
 
@@ -113,7 +113,7 @@
         <div class="lesson-tag tag-works">✓ Works Well</div>
         <div class="lesson-title">Using the AI to explain its own code back</div>
       </div>
-      <div class="lesson-body">Asking the AI to "explain what this function does in plain English" after generating it served two purposes: (1) it built the human's understanding of the implementation, and (2) it sometimes revealed that the AI's explanation didn't match its code — catching a bug before deployment. This became a standard verification step.</div>
+      <div class="lesson-body">Asking the AI to "explain what this function does in plain English" after generating it served two purposes: (1) it built the human's understanding of the implementation, and (2) it sometimes revealed that the AI's explanation didn't match its code, catching a bug before deployment. This became a standard verification step.</div>
       <div class="lesson-takeaway takeaway-green">Make AI self-explanation a standard part of the session protocol. If the AI can't explain what it built in terms that match your requirements, something is wrong.</div>
     </div>
   </div>
@@ -123,7 +123,7 @@
     <div class="section-header">
       <div class="section-label">Pitfalls to Avoid</div>
       <h2 class="section-title">Patterns That Produced Problems</h2>
-      <p class="section-sub">Things to avoid — and what to do instead.</p>
+      <p class="section-sub">Things to avoid, and what to do instead.</p>
     </div>
 
     <div class="lesson-card">
@@ -131,7 +131,7 @@
         <div class="lesson-tag tag-avoid">✗ Pitfall</div>
         <div class="lesson-title">Assuming AI-generated code is correct because it looks reasonable</div>
       </div>
-      <div class="lesson-body">AI-generated code tends to look correct — it follows naming conventions, handles the obvious case, and is well-structured. This makes errors harder to spot than in hastily written code. The Focal status overwrite bug persisted for multiple sessions because the code was clean and the error was in the logic, not the syntax.</div>
+      <div class="lesson-body">AI-generated code tends to look correct. It follows naming conventions, handles the obvious case, and is well-structured. This makes errors harder to spot than in hastily written code. The Focal status overwrite bug persisted for multiple sessions because the code was clean and the error was in the logic, not the syntax.</div>
       <div class="lesson-takeaway takeaway-red">Never evaluate AI code by how it looks. Always evaluate it by whether it does what the requirements say it should do, in all the cases you care about.</div>
     </div>
 
@@ -140,7 +140,7 @@
         <div class="lesson-tag tag-avoid">✗ Pitfall</div>
         <div class="lesson-title">Under-specifying requirements and over-attributing failures to the AI</div>
       </div>
-      <div class="lesson-body">A recurring pattern: the human specifies a behavior vaguely, the AI implements a reasonable interpretation, and the result doesn't match what the human wanted. The human concludes the AI "got it wrong." But the AI can only implement what it was told — vague requirements produce valid but wrong implementations. Diagnosing this correctly is essential for improving the collaboration.</div>
+      <div class="lesson-body">A recurring pattern: the human specifies a behavior vaguely, the AI implements a reasonable interpretation, and the result doesn't match what the human wanted. The human concludes the AI "got it wrong." But the AI can only implement what it was told. Vague requirements produce valid but wrong implementations. Diagnosing this correctly is essential for improving the collaboration.</div>
       <div class="lesson-takeaway takeaway-red">When output doesn't match expectation, first ask: "Did I specify that expectation clearly?" Before concluding the AI failed, check if you provided a specification it could have succeeded against.</div>
     </div>
 
@@ -149,7 +149,7 @@
         <div class="lesson-tag tag-avoid">✗ Pitfall</div>
         <div class="lesson-title">Starting new sessions without re-grounding the AI</div>
       </div>
-      <div class="lesson-body">Sessions that started with "can you continue from last time?" — without providing context — produced generic solutions that ignored project-specific constraints. The AI doesn't have memory between sessions. Every session is a fresh start for the model, even if the human is continuing from yesterday. The overhead of re-grounding is real, but the cost of skipping it is higher.</div>
+      <div class="lesson-body">Sessions that started with "can you continue from last time?" without providing context produced generic solutions that ignored project-specific constraints. The AI doesn't have memory between sessions. Every session is a fresh start for the model, even if the human is continuing from yesterday. The overhead of re-grounding is real, but the cost of skipping it is higher.</div>
       <div class="lesson-takeaway takeaway-red">Never assume the AI knows the project history. Start every session by pointing to context files and summarizing the current state. This is not optional for complex systems work.</div>
     </div>
 
@@ -159,7 +159,7 @@
         <div class="lesson-title">Delegating architectural decisions without realizing it</div>
       </div>
       <div class="lesson-body">Sometimes a question that feels like an implementation detail is actually an architecture decision. "Should we cache this on disk or in memory?" sounds tactical, but the answer determines the system's behavior on restart, crash recovery, and performance. If you say "you decide," you've delegated an architecture decision. Some of these are fine to delegate; others aren't. Knowing the difference requires understanding your own system well enough to recognize what's architectural.</div>
-      <div class="lesson-takeaway takeaway-red">Maintain a list of "decisions I own" — core architectural principles you've chosen. Before answering "you decide," ask whether this is a decision that should be on that list.</div>
+      <div class="lesson-takeaway takeaway-red">Maintain a list of "decisions I own": core architectural principles you've chosen. Before answering "you decide," ask whether this is a decision that should be on that list.</div>
     </div>
   </div>
 
@@ -176,7 +176,7 @@
         <div class="lesson-tag tag-surprise">Surprise</div>
         <div class="lesson-title">The collaboration generated its own meta-problem: context management</div>
       </div>
-      <div class="lesson-body">It was unexpected that managing the AI's context across sessions would become a first-class design problem — requiring its own artifacts (the Manifest, the Tier System, the skills files). This is a genuinely novel problem that didn't exist before AI collaboration became the development mode. It's not discussed in most AI tool tutorials, but it's the most important unsolved problem in long-term human–AI collaboration on complex projects.</div>
+      <div class="lesson-body">It was unexpected that managing the AI's context across sessions would become a first-class design problem, requiring its own artifacts (the Manifest, the Tier System, the skills files). This is a genuinely novel problem that didn't exist before AI collaboration became the development mode. It's not discussed in most AI tool tutorials, but it's the most important unsolved problem in long-term human–AI collaboration on complex projects.</div>
     </div>
 
     <div class="lesson-card">
@@ -184,7 +184,7 @@
         <div class="lesson-tag tag-surprise">Surprise</div>
         <div class="lesson-title">AI speed created a new failure mode: understanding lag</div>
       </div>
-      <div class="lesson-body">Traditional development is slow enough that the developer builds understanding as they build the system. AI-assisted development is fast enough that the human can be running code they don't understand within minutes. The "understanding lag" — the gap between system complexity and the human's mental model — is a new failure mode specific to AI-augmented development. It's not well-named in the literature yet, but it was the source of many debugging difficulties.</div>
+      <div class="lesson-body">Traditional development is slow enough that the developer builds understanding as they build the system. AI-assisted development is fast enough that the human can be running code they don't understand within minutes. The "understanding lag" (the gap between system complexity and the human's mental model) is a new failure mode specific to AI-augmented development. It's not well-named in the literature yet, but it was the source of many debugging difficulties.</div>
     </div>
 
     <div class="lesson-card">
@@ -192,7 +192,7 @@
         <div class="lesson-tag tag-surprise">Surprise</div>
         <div class="lesson-title">The AI was better at explaining than teaching</div>
       </div>
-      <div class="lesson-body">Claude could explain anything when asked — but didn't proactively teach concepts that the human would need to understand to make good decisions later. The human's learning happened in response to questions, not from the AI volunteering to build the human's conceptual understanding. This matters for education: AI collaboration is not automatically pedagogically rich for the learner. Designing for learning requires explicit intention.</div>
+      <div class="lesson-body">Claude could explain anything when asked, but didn't proactively teach concepts that the human would need to understand to make good decisions later. The human's learning happened in response to questions, not from the AI volunteering to build the human's conceptual understanding. This matters for education: AI collaboration is not automatically pedagogically rich for the learner. Designing for learning requires explicit intention.</div>
     </div>
 
     <div class="lesson-card">
@@ -200,7 +200,7 @@
         <div class="lesson-tag tag-surprise">Surprise</div>
         <div class="lesson-title">The process revealed more about the domain than the technology</div>
       </div>
-      <div class="lesson-body">A significant fraction of the development work wasn't "working with AI" — it was understanding the faculty job well enough to specify it. The AI collaboration forced a level of explicit articulation that working manually wouldn't have required. In this sense, building the system generated tacit-to-explicit knowledge conversion about the faculty workload problem that has value independent of the tool.</div>
+      <div class="lesson-body">A significant fraction of the development work wasn't "working with AI." It was understanding the faculty job well enough to specify it. The AI collaboration forced a level of explicit articulation that working manually wouldn't have required. In this sense, building the system generated tacit-to-explicit knowledge conversion about the faculty workload problem that has value independent of the tool.</div>
     </div>
   </div>
 
@@ -213,7 +213,7 @@
 <footer class="footer">
   <p>Focal Case Portfolio · &copy; Rui Tammy Huang, Ph.D. · University of Florida</p>
   <p style="margin-top:6px;"><a href="mailto:rui.huang@coe.ufl.edu">rui.huang@coe.ufl.edu</a> · <a href="https://education.ufl.edu/faculty/rui-tammy-huang/" target="_blank">UF Faculty Page</a></p>
-  <p style="margin-top:6px;">A living document — updated as the system and understanding evolve.</p>
+  <p style="margin-top:6px;">A living document, updated as the system and understanding evolve.</p>
 </footer>
 
 <script src="js/main.js"></script>

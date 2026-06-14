@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Case — Focal Portfolio</title>
+  <title>The Case | Focal Portfolio</title>
   <meta name="description" content="What Focal is, what problem it solves, and why it represents a genuinely complex human–AI collaborative design challenge.">
-  <meta property="og:title" content="The Case: What is Focal? — Human–AI Collaborative System Design">
-  <meta property="og:description" content="A faculty member's multi-layered workload tracking problem — and why it made an ideal case for studying human–AI system design collaboration.">
+  <meta property="og:title" content="The Case: What is Focal? | Human–AI Collaborative System Design">
+  <meta property="og:description" content="A faculty member's multi-layered workload tracking problem, and why it made an ideal case for studying human–AI system design collaboration.">
   <link rel="stylesheet" href="css/style.css">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJS4ENZQKG"></script>
@@ -42,7 +42,7 @@
   <header class="hero">
     <div class="hero-eyebrow">The Case</div>
     <h1>The Problem, the System, and Why It Was <em>Complex</em></h1>
-    <p class="hero-lead">Before examining the collaboration, we need to understand what was being built and why it represented a genuinely non-trivial design challenge — not something a template or off-the-shelf tool could solve.</p>
+    <p class="hero-lead">Before examining the collaboration, we need to understand what was being built and why it represented a genuinely non-trivial design challenge, not something a template or off-the-shelf tool could solve.</p>
     <div class="hero-meta">
       <span class="badge badge-blue">System Design</span>
       <span class="badge badge-purple">Problem Context</span>
@@ -55,11 +55,11 @@
     <div class="section-header">
       <div class="section-label">The Problem</div>
       <h2 class="section-title">The Faculty Workload Tracking Problem</h2>
-      <p class="section-sub">Academic faculty jobs are notoriously difficult to manage — not because of any single area of work, but because of the sheer variety and unpredictability.</p>
+      <p class="section-sub">Academic faculty jobs are notoriously difficult to manage. The challenge is not any single area of work, but the sheer variety and unpredictability.</p>
     </div>
 
     <div class="card" style="margin-bottom:20px;">
-      <p>A typical faculty job has no clean boundaries. On any given day, the same person is a teacher designing course materials, a researcher managing a multi-author manuscript, a program administrator handling student inquiries, a committee member, a mentor, and a professional development learner — simultaneously and reactively.</p>
+      <p>A typical faculty job has no clean boundaries. On any given day, the same person is a teacher designing course materials, a researcher managing a multi-author manuscript, a program administrator handling student inquiries, a committee member, a mentor, and a professional development learner, simultaneously and reactively.</p>
       <p>The result: it is nearly impossible to know, objectively, <strong>where time actually goes</strong>. Calendar entries don't capture task-level effort. Todo lists don't connect to projects. Project boards don't roll up into a workload picture. The faculty member either over-engineers a system (and spends time maintaining it instead of working) or works without visibility into their own load distribution.</p>
     </div>
 
@@ -81,7 +81,7 @@
           <li>Per-project WBS databases auto-sync to a master tracker</li>
           <li>Work sessions logged with task + project + type</li>
           <li>Dashboard showing hours by project and work type</li>
-          <li>Focus view: overdue, due today, due this week — prioritized</li>
+          <li>Focus view: overdue, due today, due this week (prioritized)</li>
           <li>Status propagates automatically through the layers</li>
           <li>Zero manual data entry overhead for tracking</li>
         </ul>
@@ -108,17 +108,17 @@
       <div class="card">
         <div class="card-icon">📋</div>
         <div class="card-title">Layer 1: Project WBS Databases</div>
-        <div class="card-body">Each project has its own Work Breakdown Structure database in Notion — the place where tasks are created and edited by the user. One database per project, living on that project's hub page.</div>
+        <div class="card-body">Each project has its own Work Breakdown Structure database in Notion, the place where tasks are created and edited by the user. One database per project, living on that project's hub page.</div>
       </div>
       <div class="card">
         <div class="card-icon">🗂️</div>
         <div class="card-title">Layer 2: Master WBS Tasks</div>
-        <div class="card-body">A single implementation-tracking database fed by the Python sync tool. All project tasks appear here, enabling cross-project views, status tracking, and priority scoring. Never edited directly — changes always originate in Layer 1.</div>
+        <div class="card-body">A single implementation-tracking database fed by the Python sync tool. All project tasks appear here, enabling cross-project views, status tracking, and priority scoring. It is never edited directly. Changes always originate in Layer 1.</div>
       </div>
       <div class="card">
         <div class="card-icon">⏱️</div>
         <div class="card-title">Layer 3: Work Sessions</div>
-        <div class="card-body">Time-logging entries auto-created when the user starts working on a task via the Focal UI. Each session captures task, project, work type, and duration — feeding the workload dashboard.</div>
+        <div class="card-body">Time-logging entries auto-created when the user starts working on a task via the Focal UI. Each session captures task, project, work type, and duration, feeding the workload dashboard.</div>
       </div>
     </div>
 
@@ -126,7 +126,7 @@
       <div class="callout-icon">⚡</div>
       <div>
         <strong>The key design insight:</strong>
-        The automation runs one-directionally — from project WBS into master, never back. This prevents sync loops, protects formula-computed status fields, and keeps the user's editing mental model simple. The user edits in Layer 1; the system handles everything else.
+        The automation runs one-directionally: from project WBS into master, never back. This prevents sync loops, protects formula-computed status fields, and keeps the user's editing mental model simple. The user edits in Layer 1; the system handles everything else.
       </div>
     </div>
 
@@ -134,10 +134,10 @@
       <div class="card-title" style="margin-bottom:12px;">The Focal UI (runs at localhost:8765)</div>
       <div class="card-body">
         <p>Focal is a locally-run Flask web app with four views:</p>
-        <p><strong>Main Hub</strong> — sync controls and a Quick Add form for creating tasks without opening Notion.</p>
-        <p><strong>📌 Focus Tasks</strong> — a prioritized view of overdue, due-today, and due-this-week tasks across all projects.</p>
-        <p><strong>📊 Workload Dashboard</strong> — hours logged by project and work type, showing actual vs. estimated workload distribution.</p>
-        <p><strong>📐 System Design</strong> — the live design document for the system, maintained inside the app itself.</p>
+        <p><strong>Main Hub</strong>: sync controls and a Quick Add form for creating tasks without opening Notion.</p>
+        <p><strong>📌 Focus Tasks</strong>: a prioritized view of overdue, due-today, and due-this-week tasks across all projects.</p>
+        <p><strong>📊 Workload Dashboard</strong>: hours logged by project and work type, showing actual vs. estimated workload distribution.</p>
+        <p><strong>📐 System Design</strong>: the live design document for the system, maintained inside the app itself.</p>
       </div>
     </div>
   </div>
@@ -156,7 +156,7 @@
         <div>
           <div class="tl-label">Complexity dimension</div>
           <div class="tl-title">Multi-layer data architecture with real constraints</div>
-          <div class="tl-body">The system required three interlocking databases with specific sync directionality, formula-based status propagation, and idempotent sync logic. Getting one layer wrong broke the others — there was no safe "just try it and see" approach.</div>
+          <div class="tl-body">The system required three interlocking databases with specific sync directionality, formula-based status propagation, and idempotent sync logic. Getting one layer wrong broke the others. There was no safe "just try it and see" approach.</div>
         </div>
       </div>
       <div class="tl-item">
@@ -164,7 +164,7 @@
         <div>
           <div class="tl-label">Complexity dimension</div>
           <div class="tl-title">Evolving requirements that changed the architecture</div>
-          <div class="tl-body">The project started as a simple sync script and evolved into a modular Flask application with a dashboard. Each evolution required re-designing decisions made in prior iterations — not just adding features, but rethinking structure.</div>
+          <div class="tl-body">The project started as a simple sync script and evolved into a modular Flask application with a dashboard. Each evolution required re-designing decisions made in prior iterations, not just adding features, but rethinking structure.</div>
         </div>
       </div>
       <div class="tl-item">
@@ -172,14 +172,14 @@
         <div>
           <div class="tl-label">Complexity dimension</div>
           <div class="tl-title">Integration with an external API (Notion) with quirks</div>
-          <div class="tl-body">Notion's API has well-documented limitations (e.g., relation filters not supported, formula fields read-only, rate limits). Every design decision had to account for what the API could and could not do — requiring the human to develop mental models of the external system.</div>
+          <div class="tl-body">Notion's API has well-documented limitations (e.g., relation filters not supported, formula fields read-only, rate limits). Every design decision had to account for what the API could and could not do, requiring the human to develop mental models of the external system.</div>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot">4</div>
         <div>
           <div class="tl-label">Complexity dimension</div>
-          <div class="tl-title">The human was also the user — not an abstract requirements doc</div>
+          <div class="tl-title">The human was also the user, not an abstract requirements doc</div>
           <div class="tl-body">Unlike a client project, the designer had rich tacit knowledge of the problem but had to learn to articulate requirements in ways the AI could act on. This surfaced important questions about the translation cost between human intent and machine-actionable specification.</div>
         </div>
       </div>
@@ -188,7 +188,7 @@
         <div>
           <div class="tl-label">Complexity dimension</div>
           <div class="tl-title">Production system with real consequences</div>
-          <div class="tl-body">Unlike a tutorial project, Focal is the system the faculty member actually uses daily. Bad design decisions had real costs — broken sync, lost data, unusable interfaces. This created authentic stakes that shaped every decision.</div>
+          <div class="tl-body">Unlike a tutorial project, Focal is the system the faculty member actually uses daily. Bad design decisions had real costs: broken sync, lost data, unusable interfaces. This created authentic stakes that shaped every decision.</div>
         </div>
       </div>
     </div>
@@ -210,17 +210,17 @@
       <div class="card">
         <div class="card-icon">📐</div>
         <div class="card-title">Full Design Lifecycle</div>
-        <div class="card-body">The case covers requirements elicitation, architecture design, implementation, testing, refactoring, and ongoing maintenance — the full software design lifecycle, not just code generation.</div>
+        <div class="card-body">The case covers requirements elicitation, architecture design, implementation, testing, refactoring, and ongoing maintenance. This spans the full software design lifecycle, not just code generation.</div>
       </div>
       <div class="card">
         <div class="card-icon">🪞</div>
         <div class="card-title">Reflexive Practitioner</div>
-        <div class="card-body">The human designer is a CS Education and Instructional Design researcher — capable of naming what's happening pedagogically and methodologically while it's happening.</div>
+        <div class="card-body">The human designer is a CS Education and Instructional Design researcher, capable of naming what's happening pedagogically and methodologically while it's happening.</div>
       </div>
       <div class="card">
         <div class="card-icon">⚖️</div>
         <div class="card-title">Balanced Human + AI Roles</div>
-        <div class="card-body">The human made all design decisions and owned all requirements. The AI generated code, surfaced options, and flagged problems. Neither was passive — the case shows authentic division of cognitive labor.</div>
+        <div class="card-body">The human made all design decisions and owned all requirements. The AI generated code, surfaced options, and flagged problems. Neither was passive. The case shows authentic division of cognitive labor.</div>
       </div>
     </div>
   </div>
@@ -234,7 +234,7 @@
 <footer class="footer">
   <p>Focal Case Portfolio · &copy; Rui Tammy Huang, Ph.D. · University of Florida</p>
   <p style="margin-top:6px;"><a href="mailto:rui.huang@coe.ufl.edu">rui.huang@coe.ufl.edu</a> · <a href="https://education.ufl.edu/faculty/rui-tammy-huang/" target="_blank">UF Faculty Page</a></p>
-  <p style="margin-top:6px;">A living document — updated as the system and understanding evolve.</p>
+  <p style="margin-top:6px;">A living document, updated as the system and understanding evolve.</p>
 </footer>
 
 <script src="js/main.js"></script>

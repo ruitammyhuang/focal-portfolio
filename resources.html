@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resources — Focal Portfolio</title>
-  <meta name="description" content="Checklists, frameworks, and prompting strategies for human–AI collaborative system design — distilled from the Focal development process.">
+  <title>Resources | Focal Portfolio</title>
+  <meta name="description" content="Checklists, frameworks, and prompting strategies for human–AI collaborative system design, distilled from the Focal development process.">
   <meta property="og:title" content="Human–AI System Design Resources: Checklists & Frameworks">
   <meta property="og:description" content="Practical checklists and frameworks for designing complex systems with AI, extracted from a real faculty PM system development case.">
   <link rel="stylesheet" href="css/style.css">
@@ -42,7 +42,7 @@
   <header class="hero">
     <div class="hero-eyebrow">Resources</div>
     <h1>Checklists, Frameworks &amp; <em>Prompting Strategies</em></h1>
-    <p class="hero-lead">Practical, reusable resources distilled from the Focal development process — for use by students, educators, and practitioners who want to do human–AI collaborative system design well.</p>
+    <p class="hero-lead">Practical, reusable resources distilled from the Focal development process, for use by students, educators, and practitioners who want to do human–AI collaborative system design well.</p>
     <div class="hero-meta">
       <span class="badge badge-blue">4 Frameworks</span>
       <span class="badge badge-purple">Checklists</span>
@@ -55,7 +55,7 @@
     <div class="section-header">
       <div class="section-label">Resource 1</div>
       <h2 class="section-title">Before You Build: Project Kickoff Checklist</h2>
-      <p class="section-sub">What you need to have figured out before the first design conversation with AI — the things that cannot be delegated.</p>
+      <p class="section-sub">What you need to have figured out before the first design conversation with AI. These are the things that cannot be delegated.</p>
     </div>
     <ul class="checklist">
       <li>
@@ -69,13 +69,13 @@
         <div class="check-num">2</div>
         <div class="check-body">
           <strong>Enumerate your constraints explicitly</strong>
-          <p>What external systems must the solution integrate with? What APIs exist? What are you unwilling to change (e.g., existing Notion workspace structure)? What's your technical skill floor? The AI will design around what you tell it — unstated constraints become surprises later.</p>
+          <p>What external systems must the solution integrate with? What APIs exist? What are you unwilling to change (e.g., existing Notion workspace structure)? What's your technical skill floor? The AI will design around what you tell it. Unstated constraints become surprises later.</p>
         </div>
       </li>
       <li>
         <div class="check-num">3</div>
         <div class="check-body">
-          <strong>Decide what "success" looks like — specifically</strong>
+          <strong>Decide what "success" looks like, specifically</strong>
           <p>Name the behavior that will tell you the system is working. "I can see all overdue tasks across all projects in under 10 seconds, without opening Notion" is testable. "Better workload visibility" is not. You need both the scenario and the acceptance criterion.</p>
         </div>
       </li>
@@ -83,7 +83,7 @@
         <div class="check-num">4</div>
         <div class="check-body">
           <strong>Identify what you don't know about your own requirements</strong>
-          <p>Before the first conversation, write down 3–5 things you're uncertain about — workflow details you haven't fully thought through, edge cases you're unsure of. These become the agenda for early clarification dialogue.</p>
+          <p>Before the first conversation, write down 3–5 things you're uncertain about: workflow details you haven't fully thought through, edge cases you're unsure of. These become the agenda for early clarification dialogue.</p>
         </div>
       </li>
       <li>
@@ -101,13 +101,13 @@
     <div class="section-header">
       <div class="section-label">Resource 2</div>
       <h2 class="section-title">Session-Level Collaboration Protocol</h2>
-      <p class="section-sub">How to structure each individual AI collaboration session for complex systems work — especially when the project spans many sessions over time.</p>
+      <p class="section-sub">How to structure each individual AI collaboration session for complex systems work, especially when the project spans many sessions over time.</p>
     </div>
 
     <div class="callout rule">
       <div class="callout-icon">💡</div>
       <div>
-        <strong>Core insight from Focal:</strong> Each AI session starts cold. The AI has no memory of prior sessions unless you design a context system. Designing that system is one of the most important — and most overlooked — tasks in long-term human–AI collaboration.
+        <strong>Core insight from Focal:</strong> Each AI session starts cold. The AI has no memory of prior sessions unless you design a context system. Designing that system is one of the most important and most overlooked tasks in long-term human–AI collaboration.
       </div>
     </div>
 
@@ -115,17 +115,17 @@
       <div class="card">
         <div class="card-icon">🗂️</div>
         <div class="card-title">Build a Tiered Context System</div>
-        <div class="card-body">Designate a small set of "always read" files that give the AI enough context to work correctly — architecture overview, key IDs, core rules. Separate these from implementation files that only need reading when modifying. The Focal <code>_MANIFEST.md</code> Tier System is a working example.</div>
+        <div class="card-body">Designate a small set of "always read" files that give the AI enough context to work correctly: architecture overview, key IDs, core rules. Separate these from implementation files that only need reading when modifying. The Focal <code>_MANIFEST.md</code> Tier System is a working example.</div>
       </div>
       <div class="card">
         <div class="card-icon">🎯</div>
         <div class="card-title">Start Every Session With a Clear Objective</div>
-        <div class="card-body">Before the AI reads any files, state what you want to accomplish in this session. This primes the AI to read selectively rather than exhaustively — and forces you to have a clear goal before you start.</div>
+        <div class="card-body">Before the AI reads any files, state what you want to accomplish in this session. This primes the AI to read selectively rather than exhaustively, and forces you to have a clear goal before you start.</div>
       </div>
       <div class="card">
         <div class="card-icon">✅</div>
         <div class="card-title">End Every Session With a Status Update</div>
-        <div class="card-body">Before closing, update your context files with what changed. Which files were modified? What decisions were made? What's still open? This is the "commit message" for your human–AI collaboration — essential for session continuity.</div>
+        <div class="card-body">Before closing, update your context files with what changed. Which files were modified? What decisions were made? What's still open? This is the "commit message" for your human–AI collaboration, essential for session continuity.</div>
       </div>
       <div class="card">
         <div class="card-icon">🔍</div>
@@ -140,7 +140,7 @@
     <div class="section-header">
       <div class="section-label">Resource 3</div>
       <h2 class="section-title">Prompting Strategies for Complex System Design</h2>
-      <p class="section-sub">Patterns that consistently produced better outputs in the Focal collaboration — and anti-patterns to avoid.</p>
+      <p class="section-sub">Patterns that consistently produced better outputs in the Focal collaboration, alongside anti-patterns to avoid.</p>
     </div>
 
     <div class="card-grid">
@@ -156,7 +156,7 @@
         <div class="card-title" style="color:var(--green);">✓ Effective: State constraints as constraints</div>
         <div class="card-body" style="margin-top:10px;">
           <p><strong>Instead of:</strong> (leaving it implicit)
-          <p><strong>Say:</strong> "The Notion API does not support relation filters in queries — we'll need to filter client-side. Don't propose an approach that relies on filtering by relation in the API call."</p>
+          <p><strong>Say:</strong> "The Notion API does not support relation filters in queries, so we'll need to filter client-side. Don't propose an approach that relies on filtering by relation in the API call."</p>
           <p>AI models will generate solutions that violate constraints they don't know about. Make them explicit.</p>
         </div>
       </div>
@@ -164,14 +164,14 @@
         <div class="card-title" style="color:var(--red);">✗ Avoid: Asking for too much at once</div>
         <div class="card-body" style="margin-top:10px;">
           <p><strong>Don't ask:</strong> "Build the full dashboard including workload view, focus tasks, and a quick-add panel all in this session"</p>
-          <p><strong>Better:</strong> One coherent feature per session — plan to test before building the next. AI can generate a lot of code quickly; the bottleneck is your ability to understand and verify it.</p>
+          <p><strong>Better:</strong> One coherent feature per session. Plan to test before building the next. AI can generate a lot of code quickly; the bottleneck is your ability to understand and verify it.</p>
         </div>
       </div>
       <div class="card" style="border-top: 3px solid var(--red);">
         <div class="card-title" style="color:var(--red);">✗ Avoid: Accepting without understanding</div>
         <div class="card-body" style="margin-top:10px;">
           <p><strong>Don't do:</strong> Copy-paste AI-generated code and move on.</p>
-          <p><strong>Better:</strong> Ask the AI to explain any section you don't understand before deploying. If you can't explain why the code does what it does, you won't be able to debug it when it fails — and it will fail.</p>
+          <p><strong>Better:</strong> Ask the AI to explain any section you don't understand before deploying. If you can't explain why the code does what it does, you won't be able to debug it when it fails. And it will fail.</p>
         </div>
       </div>
     </div>
@@ -179,7 +179,7 @@
     <div class="callout warn" style="margin-top:24px;">
       <div class="callout-icon">⚠️</div>
       <div>
-        <strong>The speed trap:</strong> AI generates code much faster than humans traditionally write it. This creates pressure to move faster than your understanding allows. The gap between "AI wrote it" and "I understand it" is where most errors live — and where the most important learning happens.
+        <strong>The speed trap:</strong> AI generates code much faster than humans traditionally write it. This creates pressure to move faster than your understanding allows. The gap between "AI wrote it" and "I understand it" is where most errors live, and where the most important learning happens.
       </div>
     </div>
   </div>
@@ -189,7 +189,7 @@
     <div class="section-header">
       <div class="section-label">Resource 4</div>
       <h2 class="section-title">The Iterative Design Loop for Complex Systems</h2>
-      <p class="section-sub">A repeatable pattern for each design-build-reflect cycle — adapted from the Focal development experience.</p>
+      <p class="section-sub">A repeatable pattern for each design-build-reflect cycle, adapted from the Focal development experience.</p>
     </div>
 
     <div class="timeline">
@@ -198,7 +198,7 @@
         <div>
           <div class="tl-label">Step 1</div>
           <div class="tl-title">Ground the AI in current state</div>
-          <div class="tl-body">Point the AI to your context files. State what's working, what's not, and what the session objective is. This is not overhead — this is the work that prevents the AI from solving the wrong problem.</div>
+          <div class="tl-body">Point the AI to your context files. State what's working, what's not, and what the session objective is. This is not overhead. This is the work that prevents the AI from solving the wrong problem.</div>
         </div>
       </div>
       <div class="tl-item">
@@ -206,7 +206,7 @@
         <div>
           <div class="tl-label">Step 2</div>
           <div class="tl-title">Co-design before implementing</div>
-          <div class="tl-body">Before writing a line of code, discuss the approach. Ask the AI to propose 2–3 options and explain tradeoffs. Choose deliberately. This step is frequently skipped under time pressure — and is the source of most "we built the wrong thing" outcomes.</div>
+          <div class="tl-body">Before writing a line of code, discuss the approach. Ask the AI to propose 2–3 options and explain tradeoffs. Choose deliberately. This step is frequently skipped under time pressure, and it is the source of most "we built the wrong thing" outcomes.</div>
         </div>
       </div>
       <div class="tl-item">
@@ -214,7 +214,7 @@
         <div>
           <div class="tl-label">Step 3</div>
           <div class="tl-title">Implement incrementally</div>
-          <div class="tl-body">Build one coherent piece. Get it working and understood before adding the next. For complex systems, "incremental" might mean: schema → API calls → logic → UI → integration test — in separate steps.</div>
+          <div class="tl-body">Build one coherent piece. Get it working and understood before adding the next. For complex systems, "incremental" might mean: schema → API calls → logic → UI → integration test, in separate steps.</div>
         </div>
       </div>
       <div class="tl-item">
@@ -222,7 +222,7 @@
         <div>
           <div class="tl-label">Step 4</div>
           <div class="tl-title">Test against real data and real use</div>
-          <div class="tl-body">Run the feature against your actual system, not synthetic test cases. Real data surfaces edge cases the AI didn't anticipate. This is irreplaceable — the human must do this step, not the AI.</div>
+          <div class="tl-body">Run the feature against your actual system, not synthetic test cases. Real data surfaces edge cases the AI didn't anticipate. This step is irreplaceable. The human must do it, not the AI.</div>
         </div>
       </div>
       <div class="tl-item">
@@ -230,7 +230,7 @@
         <div>
           <div class="tl-label">Step 5</div>
           <div class="tl-title">Reflect and update context</div>
-          <div class="tl-body">After each cycle: What did you learn about the requirements? What design decisions were made and why? What's the system state now? Update your context files. This reflection converts experience into knowledge — and sets up the next session for success.</div>
+          <div class="tl-body">After each cycle: What did you learn about the requirements? What design decisions were made and why? What's the system state now? Update your context files. This reflection converts experience into knowledge and sets up the next session for success.</div>
         </div>
       </div>
     </div>
@@ -245,7 +245,7 @@
 <footer class="footer">
   <p>Focal Case Portfolio · &copy; Rui Tammy Huang, Ph.D. · University of Florida</p>
   <p style="margin-top:6px;"><a href="mailto:rui.huang@coe.ufl.edu">rui.huang@coe.ufl.edu</a> · <a href="https://education.ufl.edu/faculty/rui-tammy-huang/" target="_blank">UF Faculty Page</a></p>
-  <p style="margin-top:6px;">A living document — updated as the system and understanding evolve.</p>
+  <p style="margin-top:6px;">A living document, updated as the system and understanding evolve.</p>
 </footer>
 
 <script src="js/main.js"></script>
