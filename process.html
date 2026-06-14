@@ -9,29 +9,66 @@
   <meta property="og:description" content="A phase-by-phase account of human–AI collaborative system design — from problem definition to modular production architecture.">
   <link rel="stylesheet" href="css/style.css">
   <style>
+    /* ── Accordion phase cards ── */
     .phase-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 20px;
+      border-radius: var(--radius-lg); margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color .2s ease, box-shadow .2s ease;
     }
-    .phase-header {
-      display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px;
+    .phase-card:hover { border-color: var(--accent-border); }
+    .phase-card.open  { border-color: var(--accent-border); box-shadow: var(--shadow); }
+
+    .phase-trigger {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; cursor: pointer;
+      background: none; border: none; width: 100%; text-align: left;
+      -webkit-appearance: none;
     }
+    .phase-trigger:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
     .phase-num {
-      min-width: 44px; height: 44px; border-radius: 10px;
+      min-width: 40px; height: 40px; border-radius: 9px;
       background: var(--accent); color: white;
       display: flex; align-items: center; justify-content: center;
-      font-size: 15px; font-weight: 800; flex-shrink: 0;
+      font-size: 13px; font-weight: 800; flex-shrink: 0;
     }
-    .phase-meta { flex: 1; }
-    .phase-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px; }
-    .phase-title { font-size: 19px; font-weight: 800; }
+    .phase-num.purple { background: var(--purple); }
+
+    .phase-meta { flex: 1; text-align: left; }
+    .phase-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 3px; }
+    .phase-title { font-size: 16px; font-weight: 800; line-height: 1.3; color: var(--text); }
+
+    .phase-chevron {
+      font-size: 18px; color: var(--muted-light); flex-shrink: 0;
+      transition: transform .22s ease;
+    }
+    .phase-card.open .phase-chevron { transform: rotate(180deg); color: var(--accent); }
+
+    .phase-content {
+      max-height: 0; overflow: hidden;
+      transition: max-height .32s ease, padding .22s ease;
+      padding: 0 24px;
+    }
+    .phase-card.open .phase-content {
+      max-height: 1200px;
+      padding: 0 24px 22px;
+    }
+
+    .phase-divider { height: 1px; background: var(--border-light); margin-bottom: 18px; }
     .phase-body { font-size: 13px; color: var(--text-secondary); line-height: 1.75; }
     .phase-body p + p { margin-top: 8px; }
+
     .sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
     .sub-box { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; font-size: 12px; color: var(--text-secondary); }
     .sub-box strong { display: block; color: var(--text); font-size: 12px; margin-bottom: 4px; }
+
     .pivot-box { background: var(--amber-light); border: 1px solid #fde68a; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #78350f; margin-top: 14px; }
     .pivot-box strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #b45309; margin-bottom: 3px; }
+
+    .phase-card.current { border-color: var(--accent-border); background: var(--accent-light); }
+    .phase-card.current .phase-body { color: #1e3a8a; }
+
     @media(max-width:600px) { .sub-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -46,17 +83,19 @@
       <li><a href="process.html" class="active">Process</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="competencies.html">Competencies</a></li>
+      <!--
       <li><a href="lessons.html">Lessons</a></li>
       <li><a href="implications.html">Implications</a></li>
+      -->
       <li><a href="updates.html">Updates</a></li>
     </ul>
-    <button class="nav-toggle">☰</button>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
   </div>
 </nav>
 
 <main class="page">
   <header class="hero">
-    <div class="hero-eyebrow">Section 2 · The Process</div>
+    <div class="hero-eyebrow">The Process</div>
     <h1>How Focal Was Built: <em>Phase by Phase</em></h1>
     <p class="hero-lead">The development of Focal wasn't a straight line. It was an iterative, collaborative process with real design decisions, wrong turns, and deliberate pivots — all in conversation with Claude AI.</p>
     <div class="hero-meta">
@@ -75,129 +114,184 @@
     </div>
   </div>
 
-  <!-- Phase 0 -->
+  <!-- Phases accordion -->
   <div class="section">
     <div class="section-header">
-      <div class="section-label">2.1 · The Phases</div>
+      <div class="section-label">The Phases</div>
       <h2 class="section-title">Development Timeline</h2>
-      <p class="section-sub">Each phase is characterized by a distinct problem framing, tool state, and collaboration pattern.</p>
+      <p class="section-sub">Click any phase to expand. Each phase is characterized by a distinct problem framing, tool state, and collaboration pattern.</p>
     </div>
 
-    <div class="phase-card">
-      <div class="phase-header">
+    <!-- Phase 0: Foundation -->
+    <div class="phase-card open" id="phase-0">
+      <button class="phase-trigger" aria-expanded="true" aria-controls="content-0">
         <div class="phase-num">0</div>
         <div class="phase-meta">
-          <div class="phase-label">Foundation Phase</div>
+          <div class="phase-label">Foundation · Pre-v0.1</div>
           <div class="phase-title">Articulating the Problem and Initial Notion Setup</div>
         </div>
-      </div>
-      <div class="phase-body">
-        <p>Before any code existed, the work was conceptual: articulating a vague feeling of workload chaos into a tractable system design problem. This phase involved describing the faculty job structure to Claude, identifying what "tracking workload" actually meant, and designing the initial Notion database structure.</p>
-        <p>The initial setup was Notion-only: per-project pages with simple task lists. Claude helped design the page hierarchy, database schemas, and naming conventions. No automation yet.</p>
-      </div>
-      <div class="sub-grid">
-        <div class="sub-box"><strong>Human's role</strong>Domain expert — described work areas, project types, what "useful" would look like. Made all structural decisions.</div>
-        <div class="sub-box"><strong>AI's role</strong>Structured the problem, proposed database schemas, surfaced tradeoffs between flat vs. relational Notion setups.</div>
-        <div class="sub-box"><strong>Key decision</strong>Per-project WBS databases (not a single flat task list) — allowing project-level customization while still enabling a global view.</div>
-        <div class="sub-box"><strong>Key artifact</strong>Initial Notion workspace architecture: hub pages, WBS databases, Projects DB, Work Sessions DB.</div>
-      </div>
-      <div class="pivot-box">
-        <strong>What triggered the next phase</strong>
-        Manual syncing between project WBS and any global view was untenable. As soon as there were 3+ projects, the cognitive overhead of keeping them consistent became the new problem.
+        <span class="phase-chevron">⌄</span>
+      </button>
+      <div class="phase-content" id="content-0">
+        <div class="phase-divider"></div>
+        <div class="phase-body">
+          <p>Before any code existed, the work was conceptual: articulating a vague feeling of workload chaos into a tractable system design problem. This phase involved describing the faculty job structure to Claude, identifying what "tracking workload" actually meant, and designing the initial Notion database structure.</p>
+          <p>The initial setup was Notion-only: per-project pages with simple task lists. Claude helped design the page hierarchy, database schemas, and naming conventions. No automation yet.</p>
+        </div>
+        <div class="sub-grid">
+          <div class="sub-box"><strong>Human's role</strong>Domain expert — described work areas, project types, what "useful" would look like. Made all structural decisions.</div>
+          <div class="sub-box"><strong>AI's role</strong>Structured the problem, proposed database schemas, surfaced tradeoffs between flat vs. relational Notion setups.</div>
+          <div class="sub-box"><strong>Key decision</strong>Per-project WBS databases (not a single flat task list) — allowing project-level customization while still enabling a global view.</div>
+          <div class="sub-box"><strong>Key artifact</strong>Initial Notion workspace architecture: hub pages, WBS databases, Projects DB, Work Sessions DB.</div>
+        </div>
+        <div class="pivot-box">
+          <strong>What triggered the next phase</strong>
+          Manual syncing between project WBS and any global view was untenable. As soon as there were 3+ projects, the cognitive overhead of keeping them consistent became the new problem.
+        </div>
       </div>
     </div>
 
-    <div class="phase-card">
-      <div class="phase-header">
+    <!-- Phase 1: v0.1 -->
+    <div class="phase-card" id="phase-1">
+      <button class="phase-trigger" aria-expanded="false" aria-controls="content-1">
         <div class="phase-num">1</div>
         <div class="phase-meta">
-          <div class="phase-label">First Automation Phase</div>
-          <div class="phase-title">Monolithic Python Sync Script (v1)</div>
+          <div class="phase-label">First Automation · v0.1</div>
+          <div class="phase-title">Monolithic Python Sync Script</div>
         </div>
-      </div>
-      <div class="phase-body">
-        <p>The first version of Focal was a single Python script (~1,000 lines) that discovered all WBS databases in Notion by title pattern, pulled tasks from each, and created/updated corresponding entries in Master WBS Tasks. Claude wrote most of the code; the human defined the logic, approved the API strategy, and tested against real Notion data.</p>
-        <p>A Flask UI was added as a thin wrapper to make sync triggerable from a browser rather than the terminal. This was the first time the "Quick Add" concept appeared — the user wanted to create tasks without opening Notion.</p>
-      </div>
-      <div class="sub-grid">
-        <div class="sub-box"><strong>Human's role</strong>Defined sync rules (idempotency, one-directional), tested with real data, identified bugs, described edge cases from actual use.</div>
-        <div class="sub-box"><strong>AI's role</strong>Implemented Notion API calls, wrote deduplication logic, built the Flask wrapper, debugged API quirks.</div>
-        <div class="sub-box"><strong>Key decision</strong>One-directional sync (Project WBS → Master only). Protects the Auto Status formula field in Master from being overwritten.</div>
-        <div class="sub-box"><strong>Key artifact</strong><code>notion_wbs_sync.py</code> — a ~1,000-line monolithic script with Flask routes, Notion client, and sync logic all in one file.</div>
-      </div>
-      <div class="pivot-box">
-        <strong>What triggered the next phase</strong>
-        The monolithic script became hard to navigate and modify. Adding a new field or fixing a bug required understanding 1,000 lines of context. The human needed to describe changes to Claude, who would then search for the right location — inefficient and error-prone.
+        <span class="phase-chevron">⌄</span>
+      </button>
+      <div class="phase-content" id="content-1">
+        <div class="phase-divider"></div>
+        <div class="phase-body">
+          <p>The first version of Focal was a single Python script (~1,000 lines) that discovered all WBS databases in Notion by title pattern, pulled tasks from each, and created/updated corresponding entries in Master WBS Tasks. Claude wrote most of the code; the human defined the logic, approved the API strategy, and tested against real Notion data.</p>
+          <p>A Flask UI was added as a thin wrapper to make sync triggerable from a browser rather than the terminal. This was the first time the "Quick Add" concept appeared — the user wanted to create tasks without opening Notion.</p>
+        </div>
+        <div class="sub-grid">
+          <div class="sub-box"><strong>Human's role</strong>Defined sync rules (idempotency, one-directional), tested with real data, identified bugs, described edge cases from actual use.</div>
+          <div class="sub-box"><strong>AI's role</strong>Implemented Notion API calls, wrote deduplication logic, built the Flask wrapper, debugged API quirks.</div>
+          <div class="sub-box"><strong>Key decision</strong>One-directional sync (Project WBS → Master only). Protects the Auto Status formula field in Master from being overwritten.</div>
+          <div class="sub-box"><strong>Key artifact</strong><code>notion_wbs_sync.py</code> — a ~1,000-line monolithic script with Flask routes, Notion client, and sync logic all in one file.</div>
+        </div>
+        <div class="pivot-box">
+          <strong>What triggered the next phase</strong>
+          The monolithic script became hard to navigate and modify. Adding a new field or fixing a bug required understanding 1,000 lines of context. The human needed to describe changes to Claude, who would then search for the right location — inefficient and error-prone.
+        </div>
       </div>
     </div>
 
-    <div class="phase-card">
-      <div class="phase-header">
+    <!-- Phase 2: v0.2 -->
+    <div class="phase-card" id="phase-2">
+      <button class="phase-trigger" aria-expanded="false" aria-controls="content-2">
         <div class="phase-num">2</div>
         <div class="phase-meta">
-          <div class="phase-label">Architecture Refactor Phase</div>
-          <div class="phase-title">Modular Flask Package (Focal v2)</div>
+          <div class="phase-label">Architecture Refactor · v0.2</div>
+          <div class="phase-title">Modular Flask Package</div>
         </div>
-      </div>
-      <div class="phase-body">
-        <p>The monolith was refactored into a proper Python package — <code>focal/</code> — with separation of concerns: API client, sync engine, route blueprints, templates. The human directed the architecture; Claude performed the refactor, maintaining behavior while restructuring.</p>
-        <p>This phase introduced formal documentation: a <code>_MANIFEST.md</code> Tier System to help Claude navigate the codebase in future sessions without reading all 3,000 lines. This was a meta-level insight: the collaboration was generating context management overhead that required its own designed solution.</p>
-      </div>
-      <div class="sub-grid">
-        <div class="sub-box"><strong>Human's role</strong>Directed the architecture split, defined the Tier System for context management, validated that behavior was preserved.</div>
-        <div class="sub-box"><strong>AI's role</strong>Executed the refactor, reorganized files, updated imports, built the Blueprint pattern for Flask routes.</div>
-        <div class="sub-box"><strong>Key decision</strong>The Tier System in _MANIFEST.md — a human-designed solution to the AI's context window limitations. Tier 1 files always safe to read; Tier 2 only when modifying; Tier 3 never unless asked.</div>
-        <div class="sub-box"><strong>Key artifact</strong>The <code>focal/</code> package: <code>app.py</code>, <code>config.py</code>, <code>notion_client.py</code>, <code>sync_engine.py</code>, <code>tasks.py</code>, <code>routes/</code>, <code>templates/</code>.</div>
-      </div>
-      <div class="pivot-box">
-        <strong>What triggered the next phase</strong>
-        Syncing worked, but the user had no way to see the output. Tasks were in Notion but understanding "what's most urgent across everything" still required manually scanning each project. A focus view was needed.
+        <span class="phase-chevron">⌄</span>
+      </button>
+      <div class="phase-content" id="content-2">
+        <div class="phase-divider"></div>
+        <div class="phase-body">
+          <p>The monolith was refactored into a proper Python package — <code>focal/</code> — with separation of concerns: API client, sync engine, route blueprints, templates. The human directed the architecture; Claude performed the refactor, maintaining behavior while restructuring.</p>
+          <p>This phase introduced formal documentation: a <code>_MANIFEST.md</code> Tier System to help Claude navigate the codebase in future sessions without reading all 3,000 lines. This was a meta-level insight: the collaboration was generating context management overhead that required its own designed solution.</p>
+        </div>
+        <div class="sub-grid">
+          <div class="sub-box"><strong>Human's role</strong>Directed the architecture split, defined the Tier System for context management, validated that behavior was preserved.</div>
+          <div class="sub-box"><strong>AI's role</strong>Executed the refactor, reorganized files, updated imports, built the Blueprint pattern for Flask routes.</div>
+          <div class="sub-box"><strong>Key decision</strong>The Tier System in _MANIFEST.md — a human-designed solution to the AI's context window limitations. Tier 1 files always safe to read; Tier 2 only when modifying; Tier 3 never unless asked.</div>
+          <div class="sub-box"><strong>Key artifact</strong>The <code>focal/</code> package: <code>app.py</code>, <code>config.py</code>, <code>notion_client.py</code>, <code>sync_engine.py</code>, <code>tasks.py</code>, <code>routes/</code>, <code>templates/</code>.</div>
+        </div>
+        <div class="pivot-box">
+          <strong>What triggered the next phase</strong>
+          Syncing worked, but the user had no way to see the output. Tasks were in Notion but understanding "what's most urgent across everything" still required manually scanning each project. A focus view was needed.
+        </div>
       </div>
     </div>
 
-    <div class="phase-card">
-      <div class="phase-header">
+    <!-- Phase 3: intelligence layer (within v0.2 era) -->
+    <div class="phase-card" id="phase-3">
+      <button class="phase-trigger" aria-expanded="false" aria-controls="content-3">
         <div class="phase-num">3</div>
         <div class="phase-meta">
-          <div class="phase-label">Intelligence Layer Phase</div>
+          <div class="phase-label">Intelligence Layer · v0.2 continued</div>
           <div class="phase-title">Focus Tasks + Workload Dashboard</div>
         </div>
-      </div>
-      <div class="phase-body">
-        <p>Two new views were added to the Focal UI: a Focus Tasks view (overdue, due today, due this week — across all projects, auto-prioritized) and a Workload Dashboard (hours logged by project and work type, updated from Work Sessions data). Both required new Notion API queries and a caching layer to avoid hitting rate limits on every page load.</p>
-        <p>The Focus Tasks view also connected to Notion pages in Cowork — Claude could query it directly to answer "what should I work on today?" A scheduled task was set up to refresh the focus list daily.</p>
-      </div>
-      <div class="sub-grid">
-        <div class="sub-box"><strong>Human's role</strong>Defined what "focus" meant (urgency logic), specified which data the dashboard needed, tested the prioritization against actual workload perception.</div>
-        <div class="sub-box"><strong>AI's role</strong>Implemented the Notion query logic, built the caching layer, designed the dashboard UI, created the scheduled task integration.</div>
-        <div class="sub-box"><strong>Key decision</strong>Cache focus tasks locally (not re-query Notion on every view) — necessary because the Notion API is slow and rate-limited for 200+ tasks.</div>
-        <div class="sub-box"><strong>Key artifact</strong><code>focus.html</code>, <code>workload.html</code>, <code>focus-task-list-cache.json</code>, <code>dashboard_routes.py</code>.</div>
-      </div>
-      <div class="pivot-box">
-        <strong>What triggered the next phase</strong>
-        System is functional and in daily use. The current phase is about refinement, documentation, and using the case itself as a research site — which led to this portfolio.
+        <span class="phase-chevron">⌄</span>
+      </button>
+      <div class="phase-content" id="content-3">
+        <div class="phase-divider"></div>
+        <div class="phase-body">
+          <p>Two new views were added to the Focal UI: a Focus Tasks view (overdue, due today, due this week — across all projects, auto-prioritized) and a Workload Dashboard (hours logged by project and work type, updated from Work Sessions data). Both required new Notion API queries and a caching layer to avoid hitting rate limits on every page load.</p>
+          <p>The Focus Tasks view also connected to Notion pages in Cowork — Claude could query it directly to answer "what should I work on today?" A scheduled task was set up to refresh the focus list daily.</p>
+        </div>
+        <div class="sub-grid">
+          <div class="sub-box"><strong>Human's role</strong>Defined what "focus" meant (urgency logic), specified which data the dashboard needed, tested the prioritization against actual workload perception.</div>
+          <div class="sub-box"><strong>AI's role</strong>Implemented the Notion query logic, built the caching layer, designed the dashboard UI, created the scheduled task integration.</div>
+          <div class="sub-box"><strong>Key decision</strong>Cache focus tasks locally (not re-query Notion on every view) — necessary because the Notion API is slow and rate-limited for 200+ tasks.</div>
+          <div class="sub-box"><strong>Key artifact</strong><code>focus.html</code>, <code>workload.html</code>, <code>focus-task-list-cache.json</code>, <code>dashboard_routes.py</code>.</div>
+        </div>
+        <div class="pivot-box">
+          <strong>What triggered the next phase</strong>
+          Daily use surfaced friction the design hadn't anticipated: the Master WBS schema felt awkward in practice, data entry was inconsistent across projects, and interface flows had accumulated small inefficiencies. A deeper restructuring was needed — not just new features.
+        </div>
       </div>
     </div>
 
-    <div class="phase-card" style="border-color: var(--accent-border); background: var(--accent-light);">
-      <div class="phase-header">
-        <div class="phase-num" style="background: var(--purple);">4</div>
+    <!-- Phase 4: v0.3 -->
+    <div class="phase-card" id="phase-4">
+      <button class="phase-trigger" aria-expanded="false" aria-controls="content-4">
+        <div class="phase-num">4</div>
         <div class="phase-meta">
-          <div class="phase-label">Current Phase · In Progress</div>
-          <div class="phase-title">Research, Documentation & Portfolio</div>
+          <div class="phase-label">Restructure & UX · v0.3</div>
+          <div class="phase-title">Master WBS Redesign, Streamlined Data Flow &amp; UX Overhaul</div>
+        </div>
+        <span class="phase-chevron">⌄</span>
+      </button>
+      <div class="phase-content" id="content-4">
+        <div class="phase-divider"></div>
+        <div class="phase-body">
+          <p>Major restructuring of the Master WBS Tasks database — schema simplified, field organization redesigned to reduce redundancy and improve cross-project comparability. The data flow between Project WBS → Master WBS → Work Sessions was streamlined to eliminate unnecessary intermediate steps. Interface optimizations across the Focal UI reduced clicks for common actions and created more consistent visual hierarchy. Data entry was made more flexible and consistent through field defaults, option normalization, and validation rules applied across all project WBS databases.</p>
+          <p>This was a user-experience driven iteration, not a feature iteration — grounded entirely in friction encountered during daily use.</p>
+        </div>
+        <div class="sub-grid">
+          <div class="sub-box"><strong>Human's role</strong>Identified friction from lived use, specified what felt wrong and why, directed the redesign priorities.</div>
+          <div class="sub-box"><strong>AI's role</strong>Proposed schema reorganization options, implemented DB restructure, rebuilt UI flows, normalized field options across all WBS databases.</div>
+          <div class="sub-box"><strong>Key decision</strong>Treat UX friction as a first-class design signal — not a bug to patch but a signal that the architecture needed rethinking.</div>
+          <div class="sub-box"><strong>Key insight</strong>The gap between "what seemed right in design" and "what works in daily practice" is a critical feedback loop that only the human-as-user can close.</div>
+        </div>
+        <div class="pivot-box">
+          <strong>What triggered the next phase</strong>
+          System is stable and in daily use. The work now shifts to extracting transferable knowledge from the case — treating the development process itself as a research site.
         </div>
       </div>
-      <div class="phase-body" style="color: #1e3a8a;">
-        <p>The system is in active daily use and continues to evolve. The current focus is on: (1) treating the development process as a research site, (2) building this case portfolio as a structured artifact for CS Education and Instructional Design, and (3) refining design documents as the system matures.</p>
-        <p>New features are still being added — but the main intellectual work now is reflective and generative: extracting transferable knowledge from the case.</p>
+    </div>
+
+    <!-- Phase 5: current -->
+    <div class="phase-card current" id="phase-5">
+      <button class="phase-trigger" aria-expanded="false" aria-controls="content-5">
+        <div class="phase-num purple">5</div>
+        <div class="phase-meta">
+          <div class="phase-label">Current Phase · In Progress</div>
+          <div class="phase-title">Research, Documentation &amp; Portfolio</div>
+        </div>
+        <span class="phase-chevron">⌄</span>
+      </button>
+      <div class="phase-content" id="content-5">
+        <div class="phase-divider"></div>
+        <div class="phase-body">
+          <p>The system is in active daily use and continues to evolve. The current focus is on: (1) treating the development process as a research site, (2) building this case portfolio as a structured artifact for CS Education and Instructional Design, and (3) refining design documents as the system matures.</p>
+          <p>New features are still being added — but the main intellectual work now is reflective and generative: extracting transferable knowledge from the case and making it useful for teaching and research.</p>
+        </div>
       </div>
     </div>
+
   </div>
 
   <!-- Collaboration patterns -->
   <div class="section">
     <div class="section-header">
-      <div class="section-label">2.2 · Collaboration Patterns</div>
+      <div class="section-label">Collaboration Patterns</div>
       <h2 class="section-title">How Human and AI Divided the Work</h2>
       <p class="section-sub">Across all phases, certain patterns of cognitive division emerged consistently.</p>
     </div>
@@ -267,7 +361,7 @@
   <!-- Key turning points -->
   <div class="section">
     <div class="section-header">
-      <div class="section-label">2.3 · Critical Moments</div>
+      <div class="section-label">Critical Moments</div>
       <h2 class="section-title">Turning Points in the Collaboration</h2>
       <p class="section-sub">Moments where the collaboration revealed something important about how human–AI system design actually works.</p>
     </div>
@@ -303,9 +397,31 @@
 </main>
 
 <footer class="footer">
-  <p>Focal Case Portfolio · Dr. Rui (Tammy) Huang · <a href="https://github.com/ruitammyhuang" target="_blank">GitHub</a></p>
+  <p>Focal Case Portfolio · (c) Rui Tammy Huang, Ph.D. · University of Florida</p>
+  <p style="margin-top:6px;">A living document — updated as the system and understanding evolve.</p>
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  // Accordion logic for phase cards
+  document.querySelectorAll('.phase-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const card = trigger.closest('.phase-card');
+      const isOpen = card.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.phase-card').forEach(c => {
+        c.classList.remove('open');
+        c.querySelector('.phase-trigger').setAttribute('aria-expanded', 'false');
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        card.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+        // Scroll into view smoothly if needed
+        setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+      }
+    });
+  });
+</script>
 </body>
 </html>

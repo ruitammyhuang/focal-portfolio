@@ -13,19 +13,13 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius-lg); padding: 22px 26px; margin-bottom: 14px;
     }
-    .comp-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
-    .comp-level {
-      font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px;
-      white-space: nowrap; flex-shrink: 0; margin-top: 2px;
-    }
-    .level-strong { background: var(--green-light); color: var(--green); border: 1px solid #bbf7d0; }
-    .level-gap    { background: var(--red-light);   color: var(--red);   border: 1px solid #fecdd3; }
-    .level-mixed  { background: var(--amber-light); color: var(--amber); border: 1px solid #fde68a; }
+    .comp-header { margin-bottom: 10px; }
     .comp-title { font-size: 15px; font-weight: 700; }
     .comp-body  { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
-    .comp-evidence { margin-top: 10px; padding: 10px 14px; background: var(--surface2); border-radius: 7px; font-size: 12px; color: var(--muted); }
-    .comp-evidence strong { color: var(--text); display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
-    .teach-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 100px; background: var(--purple-light); color: var(--purple); border: 1px solid #ddd6fe; margin-left: 6px; }
+    .comp-example { margin-top: 10px; padding: 10px 14px; background: var(--surface2); border-radius: 7px; font-size: 12px; color: var(--muted); }
+    .comp-example strong { color: var(--text); display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
+    .comp-teach { margin-top: 8px; padding: 10px 14px; background: var(--purple-light); border: 1px solid #ddd6fe; border-radius: 7px; font-size: 12px; color: #3b0764; }
+    .comp-teach strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--purple); margin-bottom: 3px; }
   </style>
 </head>
 <body>
@@ -39,23 +33,25 @@
       <li><a href="process.html">Process</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="competencies.html" class="active">Competencies</a></li>
+      <!--
       <li><a href="lessons.html">Lessons</a></li>
       <li><a href="implications.html">Implications</a></li>
+      -->
       <li><a href="updates.html">Updates</a></li>
     </ul>
-    <button class="nav-toggle">☰</button>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
   </div>
 </nav>
 
 <main class="page">
   <header class="hero">
-    <div class="hero-eyebrow">Section 4 · Competencies</div>
+    <div class="hero-eyebrow">Competencies</div>
     <h1>What Skills This Process <em>Revealed</em></h1>
-    <p class="hero-lead">Analyzing the Focal development process as a competency lens — identifying the skills that enabled effective human–AI collaboration, and the gaps that made it harder. Both have direct implications for what we need to teach.</p>
+    <p class="hero-lead">Analyzing the Focal development process as a competency lens — identifying the skills that enabled effective human–AI collaboration, the gaps that made it harder, and what that means for teaching.</p>
     <div class="hero-meta">
-      <span class="badge badge-green">Demonstrated Strengths</span>
-      <span class="badge badge-red" style="background:#fff1f2;color:#dc2626;border:1px solid #fecdd3;">Revealed Gaps</span>
-      <span class="badge badge-purple">Curriculum Implications</span>
+      <span class="badge badge-green">Observed in Practice</span>
+      <span class="badge badge-purple">Teaching Implications</span>
+      <span class="badge badge-amber">Living Analysis</span>
     </div>
   </header>
 
@@ -66,108 +62,99 @@
     </div>
   </div>
 
-  <!-- Demonstrated strengths -->
+  <!-- All competencies unified -->
   <div class="section">
     <div class="section-header">
-      <div class="section-label">4.1 · Demonstrated Strengths</div>
-      <h2 class="section-title">Competencies That Enabled Effective Collaboration</h2>
-      <p class="section-sub">Skills the practitioner brought that made human–AI collaboration on a complex system work well — and that are worth explicitly teaching.</p>
+      <div class="section-label">Competency Analysis</div>
+      <h2 class="section-title">Skills Observed in the Collaboration</h2>
+      <p class="section-sub">Each entry shows the competency, its observed status in this case, an example from the development process, and a note on teaching implications. Status tags reflect observation — not judgment.</p>
     </div>
 
     <div class="comp-card">
       <div class="comp-header">
-        <div class="comp-level level-strong">Strong</div>
         <div class="comp-title">Systems Thinking — Seeing Structures, Not Just Features</div>
       </div>
       <div class="comp-body">The ability to decompose a messy problem into a multi-layer architecture (WBS → Master → Sessions) and maintain design consistency across those layers. This was not AI-generated — it came from the practitioner's capacity to think in systems before implementation began.</div>
-      <div class="comp-evidence"><strong>Evidence in the case</strong> The three-layer architecture was designed before any code was written. When implementation revealed problems (e.g., the status overwrite bug), the fix came from understanding the systemic relationship between layers.</div>
+      <div class="comp-example"><strong>Example in the case</strong> The three-layer architecture was designed before any code was written. When implementation revealed problems (e.g., the status overwrite bug), the fix came from understanding the systemic relationship between layers.</div>
+      <div class="comp-teach"><strong>Teaching implication</strong> Case analysis of multi-layer systems before implementation — in CS intro and Software Design courses.</div>
     </div>
 
     <div class="comp-card">
       <div class="comp-header">
-        <div class="comp-level level-strong">Strong</div>
         <div class="comp-title">Requirement Articulation — Converting Tacit Knowledge to Explicit Specification</div>
       </div>
-      <div class="comp-body">The ability to translate vague domain needs ("I don't know where my time goes") into concrete, testable requirements ("When I click Add to Work Sessions, a new entry should appear in my Work Sessions database linked to the current task and project, with no manual fields to fill"). This is non-trivial and is the primary bottleneck in human–AI system design.</div>
-      <div class="comp-evidence"><strong>Evidence in the case</strong> The Quick Add feature was specified precisely enough on first attempt that Claude implemented it correctly without revision cycles. Contrast with features where requirements were vague — they required 2–4 back-and-forth cycles.</div>
+      <div class="comp-body">The ability to translate vague domain needs ("I don't know where my time goes") into concrete, testable requirements ("When I click Add to Work Sessions, a new entry should appear linked to the current task and project, with no manual fields to fill"). This is the primary bottleneck in human–AI system design.</div>
+      <div class="comp-example"><strong>Example in the case</strong> The Quick Add feature was specified precisely enough on first attempt that Claude implemented it correctly without revision cycles. Features where requirements were vague required 2–4 back-and-forth cycles.</div>
+      <div class="comp-teach"><strong>Teaching implication</strong> Spec writing exercises where the specification is tested by AI implementation — in Software Engineering and Instructional Design courses.</div>
     </div>
 
     <div class="comp-card">
       <div class="comp-header">
-        <div class="comp-level level-strong">Strong</div>
         <div class="comp-title">Context Design — Designing for the AI's Cognitive Constraints</div>
       </div>
       <div class="comp-body">The practitioner recognized that the AI's context window is a finite resource and designed the Tier System to manage it. This is a meta-competency: understanding how the AI works and designing the collaboration structure around it. Most practitioners don't do this — they treat AI sessions as independent and wonder why quality degrades.</div>
-      <div class="comp-evidence"><strong>Evidence in the case</strong> The <code>_MANIFEST.md</code> Tier System and the skills files (encoded domain knowledge for recurring tasks) were both human-designed solutions to the AI's architectural constraints. They significantly reduced session startup overhead.</div>
+      <div class="comp-example"><strong>Example in the case</strong> The <code>_MANIFEST.md</code> Tier System and the skills files (encoded domain knowledge for recurring tasks) were both human-designed solutions to the AI's architectural constraints — significantly reducing session startup overhead.</div>
+      <div class="comp-teach"><strong>Teaching implication</strong> Assign students to design a context management system for a multi-session AI project — a new course type focused on AI collaboration infrastructure.</div>
     </div>
 
     <div class="comp-card">
       <div class="comp-header">
-        <div class="comp-level level-strong">Strong</div>
         <div class="comp-title">Iterative Refinement — Willingness to Redesign, Not Just Debug</div>
       </div>
-      <div class="comp-body">When the monolithic script became unwieldy, the practitioner chose refactoring over patching. This required recognizing architectural debt early (before it became critical), making a case for the investment cost, and directing a non-trivial refactor. The willingness to do this — rather than add features to a bad foundation — is a competency.</div>
-      <div class="comp-evidence"><strong>Evidence in the case</strong> The v1 → v2 refactor (from monolith to modular package) was initiated by the practitioner, not triggered by a failure. The system worked; the structure was the problem.</div>
-    </div>
-  </div>
-
-  <!-- Revealed gaps -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-label">4.2 · Revealed Gaps</div>
-      <h2 class="section-title">Competencies This Process Showed We Need to Teach</h2>
-      <p class="section-sub">Places where the collaboration was less effective than it could have been — gaps that aren't unique to this practitioner, but that AI-assisted development makes visible.</p>
+      <div class="comp-body">When the monolithic script became unwieldy, the practitioner chose refactoring over patching. This required recognizing architectural debt early, and directing a non-trivial refactor before the problem became critical. The willingness to do this — rather than add features to a bad foundation — is a competency, not just a preference.</div>
+      <div class="comp-example"><strong>Example in the case</strong> The v0.1 → v0.2 refactor (monolith to modular package) was initiated by the practitioner, not triggered by a failure. The system worked; the structure was the problem.</div>
+      <div class="comp-teach"><strong>Teaching implication</strong> Build a mandatory refactor milestone into studio and capstone projects — not as a punishment for bad code, but as a designed learning moment.</div>
     </div>
 
     <div class="comp-card">
       <div class="comp-header">
-        <div class="comp-level level-gap">Gap</div>
-        <div class="comp-title">AI Output Verification<span class="teach-tag">→ Teach This</span></div>
+        <div class="comp-title">AI Output Verification</div>
       </div>
       <div class="comp-body">Knowing how to systematically verify that AI-generated code does what you think it does — not by running it once, but by understanding its logic, testing edge cases, and checking against requirements. This is distinct from general testing skills; it specifically addresses the "I'll trust it because the AI wrote it" bias.</div>
-      <div class="comp-evidence"><strong>Evidence in the case</strong> The status overwrite bug ran undetected for multiple sessions because the behavior was correct in the common case. Only when edge cases occurred was the error found. A structured verification protocol would have caught it earlier.</div>
+      <div class="comp-example"><strong>Example in the case</strong> Certain behaviors that worked correctly under typical conditions were not systematically tested against edge cases until they surfaced in real use. This illustrates why AI-generated output benefits from deliberate verification beyond confirming that the common path works.</div>
+      <div class="comp-teach"><strong>Teaching implication</strong> Structured code review rubric and verification protocol assignments — embedded in all AI-integrated courses, not just dedicated testing courses.</div>
     </div>
 
     <div class="comp-card">
       <div class="comp-header">
-        <div class="comp-level level-gap">Gap</div>
-        <div class="comp-title">Managing Scope Creep in AI-Speed Development<span class="teach-tag">→ Teach This</span></div>
+        <div class="comp-title">Managing Scope in AI-Speed Development</div>
       </div>
-      <div class="comp-body">Because the AI generates features quickly, there is constant temptation to add "one more thing" before verifying what's already built. This produces large amounts of interdependent code that is hard to debug because you don't know which part is broken. Teaching humans to set and enforce session boundaries is an underappreciated skill.</div>
-      <div class="comp-evidence"><strong>Evidence in the case</strong> Several sessions that started with one clear objective added 2–3 features before testing any of them. Debug sessions that followed were harder because the fault could be in any of the additions.</div>
+      <div class="comp-body">Because the AI generates features quickly, there is constant temptation to add "one more thing" before verifying what's already built. This produces large amounts of interdependent code that is hard to debug. Teaching humans to set and enforce session boundaries is an underappreciated skill that doesn't appear in traditional SE education.</div>
+      <div class="comp-example"><strong>Example in the case</strong> When development momentum is high and the AI generates features quickly, it is tempting to continue extending before verifying what is already working. The resulting interdependencies between untested additions can make later diagnosis harder to isolate.</div>
+      <div class="comp-teach"><strong>Teaching implication</strong> Session planning with explicit scope limits, followed by retrospective analysis — in Project Management and Software Engineering courses.</div>
     </div>
 
     <div class="comp-card">
       <div class="comp-header">
-        <div class="comp-level level-gap">Gap</div>
-        <div class="comp-title">Distinguishing AI Knowledge Limitations from Human Specification Failures<span class="teach-tag">→ Teach This</span></div>
+        <div class="comp-title">Failure Mode Diagnosis — AI Error vs. Specification Failure</div>
       </div>
-      <div class="comp-body">When AI-generated code is wrong, it's not always clear whether the AI made an error or whether the human's specification was ambiguous. Developing the diagnostic instinct to distinguish these two failure modes — and responding appropriately to each — is a specific competency that most practitioners lack.</div>
-      <div class="comp-evidence"><strong>Evidence in the case</strong> Early bugs were often attributed to the AI when they were actually specification failures. Recognizing this improved the quality of requirements prompts in later sessions.</div>
+      <div class="comp-body">When AI-generated code is wrong, it's not always clear whether the AI made an error or whether the human's specification was ambiguous. Developing the diagnostic instinct to distinguish these two failure modes — and responding appropriately — is a specific competency that most practitioners lack.</div>
+      <div class="comp-example"><strong>Example in the case</strong> When something goes wrong in AI-generated code, the instinctive response is often to look at the AI's output first. Over time, the more productive habit is to examine the specification alongside the output — the failure frequently lives at the boundary between what was intended and what was actually communicated.</div>
+      <div class="comp-teach"><strong>Teaching implication</strong> Failure attribution exercises using AI-generated code with planted bugs — some from AI errors, some from ambiguous specs — in debugging and QA courses.</div>
     </div>
 
     <div class="comp-card">
       <div class="comp-header">
-        <div class="comp-level level-mixed">Mixed</div>
         <div class="comp-title">API Literacy — Understanding External System Constraints</div>
       </div>
       <div class="comp-body">Understanding the constraints of APIs you're integrating with deeply enough to make good design decisions. Partial knowledge leads to designs that work in the happy path but fail at known API limitations. The AI knows APIs well in the abstract, but the practitioner needs to know the specific, current, real constraints of the system they're working with.</div>
-      <div class="comp-evidence"><strong>Evidence in the case</strong> Notion API's inability to filter by relation in queries was known but repeatedly forgotten during design conversations — leading to proposals that had to be revised once the constraint was re-stated.</div>
+      <div class="comp-example"><strong>Example in the case</strong> API constraints that are understood at one point in development can fade into the background during later design conversations, especially across sessions. The pattern suggests that known constraints belong in persistent design documentation, not just in memory.</div>
+      <div class="comp-teach"><strong>Teaching implication</strong> Read-the-docs first assignments before any AI-assisted implementation — in Web Dev and integration courses.</div>
     </div>
   </div>
 
-  <!-- Curriculum map -->
+  <!-- Curriculum summary table -->
   <div class="section">
     <div class="section-header">
-      <div class="section-label">4.3 · Curriculum Implications</div>
-      <h2 class="section-title">What to Teach and When</h2>
-      <p class="section-sub">A preliminary mapping of competencies to curriculum contexts — to be refined as the case analysis deepens.</p>
+      <div class="section-label">Curriculum Map</div>
+      <h2 class="section-title">Where These Competencies Belong in the Curriculum</h2>
+      <p class="section-sub">A preliminary mapping — to be refined as the case analysis deepens and tested against existing course structures.</p>
     </div>
     <table class="data-table">
       <thead>
         <tr>
           <th>Competency</th>
-          <th>Appropriate course context</th>
+          <th>Course context</th>
           <th>How to teach it</th>
         </tr>
       </thead>
@@ -180,11 +167,11 @@
         <tr>
           <td><strong>Requirement Articulation</strong></td>
           <td>Software Engineering / ID courses</td>
-          <td>Spec writing exercises that are tested by AI implementation</td>
+          <td>Spec writing exercises tested by AI implementation</td>
         </tr>
         <tr>
           <td><strong>Context Design</strong></td>
-          <td>AI Tools courses (new category)</td>
+          <td>AI Tools / Collaboration (new category)</td>
           <td>Design a context management system for a multi-session AI project</td>
         </tr>
         <tr>
@@ -205,7 +192,7 @@
         <tr>
           <td><strong>API Literacy</strong></td>
           <td>Web Dev / Integration courses</td>
-          <td>Read-the-docs first assignments before any AI-assisted implementation</td>
+          <td>Read-the-docs first before any AI-assisted implementation</td>
         </tr>
         <tr>
           <td><strong>Iterative Redesign</strong></td>
@@ -218,12 +205,13 @@
 
   <div style="display:flex; gap:12px; margin-top:8px;">
     <a href="resources.html" style="font-size:13px; color:var(--muted);">← Resources</a>
-    <a href="lessons.html" style="font-size:13px; font-weight:600;">Lessons →</a>
+    <a href="updates.html" style="font-size:13px; font-weight:600;">Updates →</a>
   </div>
 </main>
 
 <footer class="footer">
-  <p>Focal Case Portfolio · Dr. Rui (Tammy) Huang · <a href="https://github.com/ruitammyhuang" target="_blank">GitHub</a></p>
+  <p>Focal Case Portfolio · (c) Rui Tammy Huang, Ph.D. · University of Florida</p>
+  <p style="margin-top:6px;">A living document — updated as the system and understanding evolve.</p>
 </footer>
 
 <script src="js/main.js"></script>

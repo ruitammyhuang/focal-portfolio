@@ -40,17 +40,19 @@
       <li><a href="process.html">Process</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="competencies.html">Competencies</a></li>
+      <!--
       <li><a href="lessons.html">Lessons</a></li>
       <li><a href="implications.html">Implications</a></li>
+      -->
       <li><a href="updates.html" class="active">Updates</a></li>
     </ul>
-    <button class="nav-toggle">☰</button>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
   </div>
 </nav>
 
 <main class="page">
   <header class="hero">
-    <div class="hero-eyebrow">Section 7 · Update Log</div>
+    <div class="hero-eyebrow">Update Log</div>
     <h1>Update Log: <em>As the System Evolves</em></h1>
     <p class="hero-lead">The Focal system is in active development. This log captures each significant update — system changes, new insights, and portfolio revisions — so the case remains a living, evolving document rather than a static snapshot.</p>
     <div class="hero-meta">
@@ -76,42 +78,42 @@
       <p class="section-sub">Most recent updates first. Each entry summarizes system state, key events, and what was learned.</p>
     </div>
 
-    <!-- Entry: Portfolio launch -->
+    <!-- Entry: v0.3 DB restructure -->
     <div class="card update-entry" style="margin-bottom:16px;">
       <div class="update-header">
         <div class="update-date">June 2026</div>
-        <span class="update-phase phase-portfolio">Portfolio</span>
+        <span class="update-phase phase-system">System</span>
       </div>
-      <div class="update-version">v0.1 — Portfolio Launched</div>
+      <div class="update-version">v0.3 — Master WBS Restructure, Data Flow Optimization &amp; UX Overhaul</div>
       <div class="update-divider"></div>
       <div class="update-section">
-        <strong>System state</strong>
-        <p>Focal v2 modular architecture is stable and in daily use. Core features operational: sync engine, Quick Add, Focus Tasks view, Workload Dashboard. Five projects actively tracked: EDG 6648 Summer Instruction, EDG 6648 Course Design, Beyond LXD Label Scoping Review, CS Ed EdD Cohort 2 Workshop, Program Management.</p>
-      </div>
-      <div class="update-divider"></div>
-      <div class="update-section">
-        <strong>What happened this cycle</strong>
-        <p>Portfolio created as a structured artifact for documenting the human–AI collaboration process. Initial content covers all four portfolio goals: knowledge frameworks, competency analysis, design artifacts, and lessons learned. This is the first time the development process itself has been treated as a research site.</p>
+        <strong>What changed</strong>
+        <p>Major restructuring of the Master WBS Tasks database — schema simplified and field organization redesigned to reduce redundancy and improve cross-project comparability. Data flow between Project WBS → Master WBS → Work Sessions was streamlined to eliminate intermediate steps and reduce sync latency. Interface optimizations across the Focal UI improved usability: cleaner layouts, reduced clicks for common actions, and more consistent visual hierarchy. Data entry was made more flexible and consistent — field defaults, option normalization, and validation rules applied across all project WBS databases to prevent silent mismatches during sync.</p>
       </div>
       <div class="update-divider"></div>
       <div class="update-section">
-        <strong>New insight</strong>
-        <p>Building the portfolio forced articulation of the collaboration process in a way that revealed patterns not previously named. Most notably: "understanding lag" as a new failure mode specific to AI-augmented development, and "context design" as an underappreciated meta-competency.</p>
+        <strong>Why it was done</strong>
+        <p>Daily use revealed friction points that weren't visible during initial design: fields that felt logical in schema design were confusing in practice; data entry inconsistencies across projects were producing noisy master views; and the interface had accumulated small inefficiencies that compounded over repeated use. This iteration was user-experience driven, not feature driven.</p>
       </div>
       <div class="update-divider"></div>
       <div class="update-section">
-        <strong>What's open / next</strong>
-        <p>Portfolio needs: design artifacts page (linking to existing docs), deeper competency analysis as the case continues, and first social media sharing test. System needs: refinements to Workload Dashboard work type categorization.</p>
+        <strong>Key lessons from this cycle</strong>
+        <p>Real use surfaces problems that design sessions cannot anticipate. The gap between "what seemed right in design" and "what works in daily practice" is a critical feedback loop — and it requires the human to be the user, not just the designer. AI can implement changes quickly once the friction is identified, but the identification itself requires lived experience with the system.</p>
+      </div>
+      <div class="update-divider"></div>
+      <div class="update-section">
+        <strong>Implications for the portfolio</strong>
+        <p>This iteration adds weight to the "real stakes" argument in the Case section — the system is refined through actual use, not simulated testing. The UX-driven refactor also surfaces a new competency dimension: the ability to distinguish "this is a design problem" from "this is an implementation bug" when something feels wrong in daily use.</p>
       </div>
     </div>
 
-    <!-- Entry: v2 architecture -->
+    <!-- Entry: v0.2 architecture -->
     <div class="card update-entry" style="margin-bottom:16px; opacity: 0.9;">
       <div class="update-header">
         <div class="update-date">May 2026</div>
         <span class="update-phase phase-system">System</span>
       </div>
-      <div class="update-version">Focal v2 — Modular Architecture Refactor</div>
+      <div class="update-version">v0.2 — Modular Architecture Refactor</div>
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>What changed</strong>
@@ -129,13 +131,13 @@
       </div>
     </div>
 
-    <!-- Entry: v1 -->
+    <!-- Entry: v0.1 -->
     <div class="card update-entry" style="margin-bottom:16px; opacity: 0.85;">
       <div class="update-header">
         <div class="update-date">Early 2026</div>
         <span class="update-phase phase-system">System</span>
       </div>
-      <div class="update-version">Focal v1 — First Automation (Monolithic Script)</div>
+      <div class="update-version">v0.1 — First Automation (Monolithic Script)</div>
       <div class="update-divider"></div>
       <div class="update-section">
         <strong>What was built</strong>
@@ -185,13 +187,14 @@
   </div>
 
   <div style="display:flex; gap:12px; margin-top:8px;">
-    <a href="implications.html" style="font-size:13px; color:var(--muted);">← Implications</a>
+    <a href="competencies.html" style="font-size:13px; color:var(--muted);">← Competencies</a>
     <a href="index.html" style="font-size:13px; font-weight:600;">← Back to Home</a>
   </div>
 </main>
 
 <footer class="footer">
-  <p>Focal Case Portfolio · Dr. Rui (Tammy) Huang · <a href="https://github.com/ruitammyhuang" target="_blank">GitHub</a></p>
+  <p>Focal Case Portfolio · (c) Rui Tammy Huang, Ph.D. · University of Florida</p>
+  <p style="margin-top:6px;">A living document — updated as the system and understanding evolve.</p>
 </footer>
 
 <script src="js/main.js"></script>
