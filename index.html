@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focal: A Human–AI Collaborative System Design Case Study</title>
+  <meta name="description" content="A faculty member's documented journey of designing and building a complex workload management system with Claude AI — generating insights for CS Education and Instructional Design.">
+
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:title" content="Focal: Human–AI Collaborative System Design">
+  <meta property="og:description" content="A faculty member built a real-world PM system with Claude AI. This portfolio documents the process, competencies, lessons learned, and implications for CS Ed and Instructional Design.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ruitammyhuang.github.io/focal-portfolio/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Focal: Human–AI Collaborative System Design">
+  <meta name="twitter:description" content="A faculty member built a real-world PM system with Claude AI. A case portfolio for CS Education and Instructional Design.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Home-specific overrides */
+    .home-hero {
+      padding: 64px 0 52px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 52px;
+    }
+    .home-hero h1 { font-size: 42px; max-width: 700px; }
+    .case-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #5b21b6 100%);
+      color: white; border-radius: var(--radius-lg);
+      padding: 32px 36px; margin-bottom: 52px;
+      position: relative; overflow: hidden;
+    }
+    .case-banner::before {
+      content: ''; position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(255,255,255,.06);
+    }
+    .case-banner-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .14em; color: rgba(255,255,255,.6); margin-bottom: 10px;
+    }
+    .case-banner h2 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    .case-banner p  { font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.65; max-width: 600px; }
+    .case-banner-stats {
+      display: flex; gap: 28px; margin-top: 20px; flex-wrap: wrap;
+    }
+    .cbs { text-align: center; }
+    .cbs-num { font-size: 26px; font-weight: 800; }
+    .cbs-label { font-size: 11px; color: rgba(255,255,255,.65); margin-top: 2px; }
+    .purpose-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+      margin-bottom: 52px;
+    }
+    .purpose-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 22px 24px;
+    }
+    .purpose-num {
+      font-size: 11px; font-weight: 800; color: var(--accent);
+      letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .purpose-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .purpose-body { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+    @media(max-width:720px) {
+      .home-hero h1 { font-size: 28px; }
+      .purpose-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-brand-dot"></div>
+      Focal Portfolio
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="case.html">The Case</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="competencies.html">Competencies</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="implications.html">Implications</a></li>
+      <li><a href="updates.html">Updates</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ── Main ── -->
+<main class="page">
+
+  <!-- Hero -->
+  <header class="home-hero">
+    <div class="hero-eyebrow">Case Portfolio · Living Document</div>
+    <h1>Building <em>Focal</em>: A Human–AI Collaborative System Design Case Study</h1>
+    <p class="hero-lead" style="margin-top:16px;">
+      A faculty member at a research university used Claude AI to systematically design and build
+      a complex, multi-layer workload management system from scratch — documenting every step
+      to generate knowledge for <strong>CS Education</strong> and <strong>Instructional Design</strong> research.
+    </p>
+    <div class="hero-meta" style="margin-top:20px;">
+      <span class="badge badge-blue">🧑‍💻 Human–AI Collaboration</span>
+      <span class="badge badge-purple">📚 CS Education</span>
+      <span class="badge badge-green">🎨 Instructional Design</span>
+      <span class="badge badge-amber">🔄 Living Document</span>
+    </div>
+  </header>
+
+  <!-- The system at-a-glance -->
+  <div class="case-banner">
+    <div class="case-banner-label">About the System Built</div>
+    <h2>Focal — Faculty Workload Management System</h2>
+    <p>
+      A Python/Flask web application that bridges multiple per-project Notion databases into a unified
+      faculty workload tracker — automatically syncing tasks, logging work sessions, and surfacing
+      prioritized work views without manual data entry.
+    </p>
+    <div class="case-banner-stats">
+      <div class="cbs"><div class="cbs-num">3</div><div class="cbs-label">Architecture layers</div></div>
+      <div class="cbs"><div class="cbs-num">7+</div><div class="cbs-label">Faculty work areas tracked</div></div>
+      <div class="cbs"><div class="cbs-num">~3K</div><div class="cbs-label">Lines of production code</div></div>
+      <div class="cbs"><div class="cbs-num">100%</div><div class="cbs-label">Human-AI co-designed</div></div>
+    </div>
+  </div>
+
+  <!-- Four purposes -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Portfolio Purpose</div>
+      <h2 class="section-title">Four Interlocking Goals</h2>
+      <p class="section-sub">This portfolio is not just a record — it's a generative artifact that serves research, teaching, and design simultaneously.</p>
+    </div>
+    <div class="purpose-grid">
+      <div class="purpose-card">
+        <div class="purpose-num">01 · Knowledge</div>
+        <div class="purpose-title">Frameworks for Human–AI System Design</div>
+        <div class="purpose-body">Discover and build reusable knowledge, checklists, and frameworks on how humans can best use AI to systematically plan, design, and develop complex systems — going far beyond simple prompting.</div>
+      </div>
+      <div class="purpose-card">
+        <div class="purpose-num">02 · Competencies</div>
+        <div class="purpose-title">What Skills This Reveals We Need to Teach</div>
+        <div class="purpose-body">Analyze the process to identify the competencies demonstrated (what to amplify) and the competencies the process revealed as missing or difficult (what to design curriculum around).</div>
+      </div>
+      <div class="purpose-card">
+        <div class="purpose-num">03 · Design Artifacts</div>
+        <div class="purpose-title">Iteratively Refined Design Documents</div>
+        <div class="purpose-body">Maintain and improve the actual system design documents as exemplars — showing what rigorous AI-assisted system design documentation looks like at each stage of development.</div>
+      </div>
+      <div class="purpose-card">
+        <div class="purpose-num">04 · Lessons Learned</div>
+        <div class="purpose-title">What Works and What to Avoid</div>
+        <div class="purpose-body">Build a growing repository of lessons — both successes and pitfalls — so educators can teach students what actually happens when you try to build something real with AI assistance.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigate sections -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Explore the Portfolio</div>
+      <h2 class="section-title">What's Inside</h2>
+      <p class="section-sub">Each section serves both as documentation and as a teaching/research resource. All sections update as the system evolves.</p>
+    </div>
+    <div class="nav-cards">
+      <a href="case.html" class="nav-card">
+        <div class="nav-card-icon">🎯</div>
+        <div class="nav-card-title">The Case</div>
+        <div class="nav-card-sub">What Focal is, why the problem was genuinely complex, and why it makes a good human–AI collaboration case.</div>
+      </a>
+      <a href="process.html" class="nav-card">
+        <div class="nav-card-icon">🔄</div>
+        <div class="nav-card-title">The Process</div>
+        <div class="nav-card-sub">Phase-by-phase account of the collaboration — design decisions, pivots, and what triggered each iteration.</div>
+      </a>
+      <a href="resources.html" class="nav-card">
+        <div class="nav-card-icon">📋</div>
+        <div class="nav-card-title">Resources</div>
+        <div class="nav-card-sub">Checklists, frameworks, and prompting strategies distilled from the process — ready to use in your own work.</div>
+      </a>
+      <a href="competencies.html" class="nav-card">
+        <div class="nav-card-icon">🧠</div>
+        <div class="nav-card-title">Competencies</div>
+        <div class="nav-card-sub">Skills demonstrated in the collaboration and skill gaps revealed — mapped to CS Ed and ID frameworks.</div>
+      </a>
+      <a href="lessons.html" class="nav-card">
+        <div class="nav-card-icon">💡</div>
+        <div class="nav-card-title">Lessons Learned</div>
+        <div class="nav-card-sub">Candid account of what worked, what failed, and the surprises — organized for teaching and reuse.</div>
+      </a>
+      <a href="implications.html" class="nav-card">
+        <div class="nav-card-icon">🎓</div>
+        <div class="nav-card-title">Implications</div>
+        <div class="nav-card-sub">What this case means for CS Education and Instructional Design — research directions, curriculum ideas, design principles.</div>
+      </a>
+      <a href="updates.html" class="nav-card">
+        <div class="nav-card-icon">📅</div>
+        <div class="nav-card-title">Update Log</div>
+        <div class="nav-card-sub">Changelog as the Focal system evolves — each update captures new insights, design changes, and revised lessons.</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Who should read this -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Audience</div>
+      <h2 class="section-title">Who This Is For</h2>
+      <p class="section-sub">Written to be useful at multiple levels simultaneously.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">👩‍🎓</div>
+        <div class="card-title">Students</div>
+        <div class="card-body">See what a real human–AI collaborative development project looks like over time — not a toy example, but a faculty member's production system with real stakes, real pivots, and real mistakes.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">👩‍🏫</div>
+        <div class="card-title">Educators & Instructional Designers</div>
+        <div class="card-body">Use the competency analysis, lessons, and checklists to inform course design on AI-assisted development. Adopt the frameworks for structuring student projects.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔬</div>
+        <div class="card-title">Researchers</div>
+        <div class="card-body">A naturalistic case study of expert human–AI collaboration in complex system design, with the practitioner's own reflections — primary data for CS Education and AIED research.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About the author -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Who Built This</h2>
+    </div>
+    <div class="card">
+      <p>
+        <strong>Dr. Rui (Tammy) Huang</strong> is a faculty member whose work spans
+        CS Education, Educational Technology, and Instructional Design. This project emerged
+        from a practical need: managing a multi-faceted academic job (teaching, research,
+        program management, professional service, and more) without manual tracking overhead.
+      </p>
+      <p style="margin-top:12px;">
+        Rather than purchasing a tool, Tammy used Claude AI as a collaborative partner to design
+        and build a custom system — treating the process itself as a research site for understanding
+        what human–AI collaboration on complex, real-world system design actually looks like.
+      </p>
+      <div class="tags mt-6">
+        <span class="tag">CS Education</span>
+        <span class="tag">Educational Technology</span>
+        <span class="tag">Instructional Design</span>
+        <span class="tag">Human–AI Collaboration</span>
+        <span class="tag">Project Management Systems</span>
+        <span class="tag">Notion</span>
+        <span class="tag">Python/Flask</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">🔄</div>
+    <div>
+      <strong>This is a living document.</strong>
+      The Focal system is still in active development. This portfolio is updated periodically as new development phases occur, new lessons emerge, and the competency analysis is refined. Check the <a href="updates.html">Update Log</a> for the latest changes.
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <p>Focal Case Portfolio · Dr. Rui (Tammy) Huang · <a href="https://github.com/ruitammyhuang" target="_blank">GitHub</a></p>
+  <p style="margin-top:6px;">A living document — updated as the system and understanding evolve.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Implications — Focal Portfolio</title>
+  <meta name="description" content="What the Focal case means for CS Education and Instructional Design — research directions, curriculum ideas, and design principles.">
+  <meta property="og:title" content="Implications for CS Education & Instructional Design">
+  <meta property="og:description" content="What does a real human–AI collaborative system design case teach us about CS Education and Instructional Design? Research directions and curriculum implications.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><div class="nav-brand-dot"></div>Focal Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="case.html">The Case</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="competencies.html">Competencies</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="implications.html" class="active">Implications</a></li>
+      <li><a href="updates.html">Updates</a></li>
+    </ul>
+    <button class="nav-toggle">☰</button>
+  </div>
+</nav>
+
+<main class="page">
+  <header class="hero">
+    <div class="hero-eyebrow">Section 6 · Implications</div>
+    <h1>What This Case Means for <em>Teaching and Research</em></h1>
+    <p class="hero-lead">The Focal case is not just a project story — it's a site for generating knowledge about what human–AI collaboration on complex systems actually requires. Here we surface implications for CS Education and Instructional Design.</p>
+    <div class="hero-meta">
+      <span class="badge badge-blue">CS Education</span>
+      <span class="badge badge-purple">Instructional Design</span>
+      <span class="badge badge-green">Research Directions</span>
+    </div>
+  </header>
+
+  <!-- CS Ed implications -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">6.1 · CS Education</div>
+      <h2 class="section-title">Implications for CS Education</h2>
+      <p class="section-sub">What the Focal case suggests about how CS education needs to evolve in the age of AI-assisted development.</p>
+    </div>
+
+    <div class="callout rule" style="margin-bottom:32px;">
+      <div class="callout-icon">🎯</div>
+      <div>
+        <strong>Central claim:</strong> AI tools don't reduce the need for CS knowledge — they change <em>which</em> CS knowledge matters most, and they create new meta-level competencies that must be taught explicitly. CS education that responds to AI only by adding "prompt engineering" units is missing the deeper shift.
+      </div>
+    </div>
+
+    <div class="card-grid" style="margin-bottom:28px;">
+      <div class="card">
+        <div class="card-icon">🔼</div>
+        <div class="card-title">Elevated importance: Systems thinking</div>
+        <div class="card-body">When AI can generate code for any specified component, the critical skill becomes knowing how components should relate — designing the system architecture, not just writing functions. Systems thinking moves from "useful" to "essential" when the human's primary job is directing a capable code-generating partner.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔼</div>
+        <div class="card-title">Elevated importance: Specification skills</div>
+        <div class="card-body">The ability to write a requirement that a system (human or AI) can implement unambiguously is now a core CS skill, not just a software engineering elective topic. Students who cannot specify behavior clearly cannot effectively use AI tools — and produce worse code than those who can.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🆕</div>
+        <div class="card-title">New competency: Human–AI collaboration design</div>
+        <div class="card-body">Designing the collaboration itself — how to structure a long-term human–AI project, how to manage context across sessions, how to decide what to delegate vs. own — is a new competency with no clear home in the current CS curriculum. It needs one.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🆕</div>
+        <div class="card-title">New competency: AI output verification</div>
+        <div class="card-body">Testing AI-generated code requires a different mindset than testing code you wrote yourself. You have to be suspicious of code that looks correct — and know how to test for the logical errors that AI models commonly make, not just the syntactic ones that linters catch.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:14px;">What should change in CS courses</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Current focus</th><th>Needed shift</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Writing code from scratch</td>
+            <td>Specifying, directing, and verifying AI-generated code</td>
+            <td>AI writes code faster; the bottleneck is human direction quality</td>
+          </tr>
+          <tr>
+            <td>Individual debugging skills</td>
+            <td>Collaborative debugging (human + AI)</td>
+            <td>Different failure modes when AI generated the bug</td>
+          </tr>
+          <tr>
+            <td>Algorithm design</td>
+            <td>System architecture design</td>
+            <td>AI handles implementation; humans need to own structure</td>
+          </tr>
+          <tr>
+            <td>Single-session projects</td>
+            <td>Multi-session, persistent AI collaboration projects</td>
+            <td>Context management is only a skill if taught with real stakes</td>
+          </tr>
+          <tr>
+            <td>Documentation as afterthought</td>
+            <td>Documentation as AI-collaboration infrastructure</td>
+            <td>Skills files, manifests, and context documents are first-class artifacts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ID implications -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">6.2 · Instructional Design</div>
+      <h2 class="section-title">Implications for Instructional Design</h2>
+      <p class="section-sub">What the Focal case reveals about how AI changes the practice — and teaching — of instructional design and learning systems development.</p>
+    </div>
+
+    <div class="callout tip" style="margin-bottom:28px;">
+      <div class="callout-icon">📐</div>
+      <div>
+        <strong>The parallel problem:</strong> Instructional designers face the same challenge as the Focal case — translating complex, tacit human knowledge (in this case, learning science and pedagogical intent) into explicit, AI-actionable specifications. The competencies that matter for human–AI system design are closely related to those that matter for human–AI learning design.
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Learning objectives become critical upstream artifacts</div>
+        <div class="card-body">When AI can generate instructional content from a learning objective, the quality of that objective determines the quality of everything downstream. Instructional designers who write vague objectives will get mediocre AI-generated content — and won't know why. This elevates objective writing from a skill to a design capability.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <div class="card-title">The ADDIE loop compresses and multiplies</div>
+        <div class="card-body">AI makes iteration dramatically faster, which means more cycles in the same amount of time. But faster iteration without better analysis produces polished wrong solutions quickly. ID methodology needs to explicitly address how to use increased iteration cycles productively rather than just faster.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">👤</div>
+        <div class="card-title">The ID role shifts toward curation and judgment</div>
+        <div class="card-body">When AI can generate a draft lesson, assessment, or activity in seconds, the instructional designer's value becomes their judgment about what's pedagogically sound — not their ability to produce content. This is a fundamentally different value proposition, and requires different training.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <div class="card-title">Context design is a new ID skill</div>
+        <div class="card-body">The same skill that made Focal work — designing reusable context structures (skills files, manifests) — applies directly to instructional design: creating design briefs, persona documents, and curriculum frameworks that an AI can use across many design sessions. This is infrastructure design for human–AI design teams.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Research directions -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">6.3 · Research Directions</div>
+      <h2 class="section-title">Questions This Case Generates</h2>
+      <p class="section-sub">Open research questions surfaced by the Focal case — potential starting points for CS Ed and AIED research.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">Q</div>
+        <div>
+          <div class="tl-label">Research Question 1</div>
+          <div class="tl-title">What is the threshold of system complexity at which human–AI collaboration becomes more effective than human-alone development?</div>
+          <div class="tl-body">The Focal case suggests that AI adds more value as system complexity increases. Is there a measurable threshold? What factors define "complexity" in this context (number of integrations? number of constraints? number of design layers)?</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">Q</div>
+        <div>
+          <div class="tl-label">Research Question 2</div>
+          <div class="tl-title">How does "understanding lag" develop over the course of a human–AI development project, and what interventions reduce it?</div>
+          <div class="tl-body">Understanding lag (the gap between system complexity and the human's mental model) appeared to be a primary source of debugging difficulty. How can this be measured? What collaboration practices reduce it?</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">Q</div>
+        <div>
+          <div class="tl-label">Research Question 3</div>
+          <div class="tl-title">What cognitive scaffolds do novice human–AI collaborators need that expert collaborators have internalized?</div>
+          <div class="tl-body">The Focal practitioner brings CS expertise and pedagogical knowledge. What does the collaboration look like for students who lack one or both? What scaffolds bridge that gap?</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">Q</div>
+        <div>
+          <div class="tl-label">Research Question 4</div>
+          <div class="tl-title">Is the context management problem specific to current AI architectures, or will it persist as models improve?</div>
+          <div class="tl-body">The Tier System and skills files were designed to work around the AI's lack of persistent memory. As AI memory capabilities improve, how should these practices evolve? What parts of context management remain human responsibilities regardless?</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">Q</div>
+        <div>
+          <div class="tl-label">Research Question 5</div>
+          <div class="tl-title">How does reflective practice change when an AI is the co-author of the work being reflected upon?</div>
+          <div class="tl-body">Traditional reflective practice assumes the practitioner is the sole author of their work. In human–AI collaboration, attribution is distributed. How does this change the nature of reflection, learning from experience, and professional growth?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Design principles -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">6.4 · Emerging Principles</div>
+      <h2 class="section-title">Preliminary Design Principles for AI-Augmented CS Education</h2>
+      <p class="section-sub">Early principles, to be refined as the case analysis deepens. These should be treated as hypotheses, not conclusions.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">Principle 1: Teach the collaboration, not just the tool</div>
+        <div class="card-body" style="margin-top:10px;">AI tools are interfaces to a collaboration model. Teaching prompt engineering without teaching collaboration design produces students who can generate code but not direct projects.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Principle 2: Make understanding non-optional</div>
+        <div class="card-body" style="margin-top:10px;">Curriculum should require students to explain AI-generated code before using it. Understanding is not a nice-to-have — it's the human's primary contribution to the human–AI team.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Principle 3: Design learning experiences with real stakes</div>
+        <div class="card-body" style="margin-top:10px;">Human–AI collaboration competencies develop through experience with systems that matter. Tutorial projects don't create the pressure that reveals genuine competency gaps. Real projects with real users do.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Principle 4: Treat reflection as infrastructure</div>
+        <div class="card-body" style="margin-top:10px;">Build reflection into the project structure — not as an assignment, but as a practice encoded in the project artifacts (update logs, decision records, context files). Reflection should leave traces the AI can use.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:12px; margin-top:8px;">
+    <a href="lessons.html" style="font-size:13px; color:var(--muted);">← Lessons</a>
+    <a href="updates.html" style="font-size:13px; font-weight:600;">Update Log →</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Focal Case Portfolio · Dr. Rui (Tammy) Huang · <a href="https://github.com/ruitammyhuang" target="_blank">GitHub</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
